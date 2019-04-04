@@ -11,7 +11,7 @@ namespace DAO
         SqlConnection cn;
         public DataProvider()
         {
-            string cnStr = @"Data Source=DESKTOP-J6F9BFU\SQLEXPRESS;Initial Catalog=ql_store;Integrated Security=True";
+            string cnStr = @"Data Source=DESKTOP-O2DFT9U\SQLEXPRESS;Initial Catalog=ql_store;Integrated Security=True";
             cn = new SqlConnection(cnStr);
         }
         public void Connect()

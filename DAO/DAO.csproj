@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="ProductTypeDAO.cs" />
     <Compile Include="ScannerDao.cs" />
     <Compile Include="SigOnDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

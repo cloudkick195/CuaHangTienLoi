@@ -58,13 +58,25 @@ namespace DAO
         }
         public DataTable GetData(string sql)
         {
-            DataTable result = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(sql,cn);
-            da.Fill(result);
-            return result;
+            try
+            {
+                DataTable result = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                da.Fill(result);
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                DisConnect();
+            }
         }
         public SqlDataReader myExcuteReader(string sql)
         {
+            Connect();
             SqlCommand cmd = new SqlCommand(sql, cn);
             cmd.CommandType = System.Data.CommandType.Text;
             try

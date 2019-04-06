@@ -7,36 +7,35 @@ using System.Data;
 using System.Data.SqlClient;
 using DAO;
 using DTO;
-
 namespace DAO
 {
-    public class ProductTypeDAO : DataProvider
+    public class SupplierDAO : DataProvider
     {
         public DataTable GetData()
         {
             try
             {
-                DataTable result = new DataTable();
-                string sql = "SELECT * from Categories";
-                result = GetData(sql);
-                return result;
+                DataTable refult = new DataTable();
+                string sql = "select * from Suppliers";
+                refult = GetData(sql);
+                return refult;
             }
             catch (SqlException ex)
             {
                 throw ex;
             }
         }
-        public List<ProductType> GetListProductType()
+        public List<Supplier> GetListSupplier()
         {
-            List<ProductType> list = new List<ProductType>();
-            string sql = "select ProductTypeID,ProductTypeName from Categories";
+            List<Supplier> list = new List<Supplier>();
+            string sql = "select SupplierID,SupplierName from Suppliers";
             SqlDataReader dr = myExcuteReader(sql);
             while (dr.Read())
             {
-               
-                list.Add(new ProductType(Convert.ToInt32(dr["ProductTypeID"]),
-                                                dr["ProductTypeName"].ToString(),
-                                                ""));
+
+                list.Add(new Supplier(Convert.ToInt32(dr["SupplierID"]),
+                                                dr["SupplierName"].ToString(),
+                                                "","",""));
             }
 
             return list;
@@ -47,7 +46,7 @@ namespace DAO
             try
             {
                 DataTable refult = new DataTable();
-                string sql = "SELECT * from Categories WHERE ProductTypeID like '%" + item + "%' or ProductTypeName like N'%" + item + "%'";
+                string sql = "select * from Suppliers where SupplierID like N'%" + item + "%' or SupplierName like N'%" + item + "%'";
                 refult = GetData(sql);
                 return refult;
             }
@@ -56,27 +55,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public int Insert(ProductType objProductType)
+        public int Insert(Supplier obj)
         {
             try
             {
                 int result = 0;
-                string sql = "insert into Categories(ProductTypeName, Describe) values(N'" + objProductType.productTypeName + "',N'" + objProductType.describe + "')";
-                result = myExcuteNonQuery(sql);
-                return result;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-        }
-
-        public int Update(ProductType objProductType)
-        {
-            try
-            {
-                int result = 0;
-                string sql = "update Categories set ProductTypeName = N'" + objProductType.productTypeName + "', Describe = N'" + objProductType.describe + "' WHERE ProductTypeID = '"+ objProductType.productTypeID+ "'";
+                string sql = "insert into Suppliers(SupplierName, Email, Address, PhoneNumber) values(N'" + obj.supplierName + "',N'" + obj.email + "',N'" + obj.address + "','" + obj.phoneNumber + "')";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -89,7 +73,7 @@ namespace DAO
         {
             try
             {
-                string sql = "SELECT ProductTypeName FROM Categories WHERE ProductTypeName = '" + typeName + "'";
+                string sql = "SELECT SupplierName FROM Suppliers WHERE SupplierName = N'" + typeName + "'";
                 DataTable dt = new DataTable();
                 dt = GetData(sql);
                 if (dt.Rows.Count > 0)
@@ -103,12 +87,13 @@ namespace DAO
                 throw ex;
             }
         }
-        public int Delete(int productTypeID)
+
+        public int Update(Supplier obj)
         {
             try
             {
                 int result = 0;
-                string sql = "delete from Categories where ProductTypeID = '" + productTypeID + "' ";
+                string sql = "update Suppliers set SupplierName = N'" + obj.supplierName + "' , Email = N'" + obj.email + "', Address = N'" + obj.address + "', PhoneNumber = N'" + obj.phoneNumber + "' where SupplierID = N'" + obj.supplierID + "'";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -117,5 +102,20 @@ namespace DAO
                 throw ex;
             }
         }
+        public int Delete(int id)
+        {
+            try
+            {
+                int result = 0;
+                string sql = "delete from Suppliers where SupplierID = '" + id + "' ";
+                result = myExcuteNonQuery(sql);
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

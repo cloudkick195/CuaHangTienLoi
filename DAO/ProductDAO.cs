@@ -10,14 +10,14 @@ using DTO;
 
 namespace DAO
 {
-    public class ProductTypeDAO : DataProvider
+    public class ProductDAO : DataProvider
     {
         public DataTable GetData()
         {
             try
             {
                 DataTable result = new DataTable();
-                string sql = "SELECT * from Categories";
+                string sql = "SELECT * from Products";
                 result = GetData(sql);
                 return result;
             }
@@ -26,16 +26,16 @@ namespace DAO
                 throw ex;
             }
         }
-        public List<ProductType> GetListProductType()
+        public List<Product> GetListProduct()
         {
-            List<ProductType> list = new List<ProductType>();
-            string sql = "select ProductTypeID,ProductTypeName from Categories";
+            List<Product> list = new List<Product>();
+            string sql = "select * from Products";
             SqlDataReader dr = myExcuteReader(sql);
             while (dr.Read())
             {
-               
-                list.Add(new ProductType(Convert.ToInt32(dr["ProductTypeID"]),
-                                                dr["ProductTypeName"].ToString(),
+
+                list.Add(new Product(Convert.ToInt32(dr["ProductID"]),
+                                                dr["ProductName"].ToString(),
                                                 ""));
             }
 
@@ -47,7 +47,7 @@ namespace DAO
             try
             {
                 DataTable refult = new DataTable();
-                string sql = "SELECT * from Categories WHERE ProductTypeID like '%" + item + "%' or ProductTypeName like N'%" + item + "%'";
+                string sql = "SELECT * from Products WHERE ProductID like '%" + item + "%' or ProductName like N'%" + item + "%'";
                 refult = GetData(sql);
                 return refult;
             }
@@ -56,12 +56,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public int Insert(ProductType objProductType)
+        public int Insert(Product objProduct)
         {
             try
             {
                 int result = 0;
-                string sql = "insert into Categories(ProductTypeName, Describe) values(N'" + objProductType.productTypeName + "',N'" + objProductType.describe + "')";
+                string sql = "insert into Products(ProductName, Describe) values(N'" + objProduct.ProductName + "',N'" + objProduct.describe + "')";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -71,12 +71,12 @@ namespace DAO
             }
         }
 
-        public int Update(ProductType objProductType)
+        public int Update(Product objProduct)
         {
             try
             {
                 int result = 0;
-                string sql = "update Categories set ProductTypeName = N'" + objProductType.productTypeName + "', Describe = N'" + objProductType.describe + "' WHERE ProductTypeID = '"+ objProductType.productTypeID+ "'";
+                string sql = "update Products set ProductName = N'" + objProduct.ProductName + "', Describe = N'" + objProduct.describe + "' WHERE ProductID = '" + objProduct.ProductID + "'";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -89,7 +89,7 @@ namespace DAO
         {
             try
             {
-                string sql = "SELECT ProductTypeName FROM Categories WHERE ProductTypeName = '" + typeName + "'";
+                string sql = "SELECT ProductName FROM Products WHERE ProductName = '" + typeName + "'";
                 DataTable dt = new DataTable();
                 dt = GetData(sql);
                 if (dt.Rows.Count > 0)
@@ -103,12 +103,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public int Delete(int productTypeID)
+        public int Delete(int ProductID)
         {
             try
             {
                 int result = 0;
-                string sql = "delete from Categories where ProductTypeID = '" + productTypeID + "' ";
+                string sql = "delete from Products where ProductID = '" + ProductID + "' ";
                 result = myExcuteNonQuery(sql);
                 return result;
             }

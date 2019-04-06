@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btEditProduct = new System.Windows.Forms.Button();
+            this.btDeleteProduct = new System.Windows.Forms.Button();
+            this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.btViewProduct = new System.Windows.Forms.Button();
+            this.btSearchProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,16 +44,15 @@
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numQuaility = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.cbxProductType = new System.Windows.Forms.ComboBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.numAmount = new System.Windows.Forms.NumericUpDown();
+            this.dtpDateExpiration = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateManufacture = new System.Windows.Forms.DateTimePicker();
+            this.btSaveProduct = new System.Windows.Forms.Button();
+            this.btCancelProduct = new System.Windows.Forms.Button();
+            this.btAddProduct = new System.Windows.Forms.Button();
+            this.cbbSupplier = new System.Windows.Forms.ComboBox();
+            this.cbbProductType = new System.Windows.Forms.ComboBox();
+            this.txtUnit = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -79,34 +79,51 @@
             this.Describe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTimType = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.btXemProductType = new System.Windows.Forms.Button();
             this.btSearch = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btXemProductType = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtTen = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPhoneSupplier = new System.Windows.Forms.TextBox();
+            this.txtAddressSupplier = new System.Windows.Forms.TextBox();
+            this.txtEmailSupplier = new System.Windows.Forms.TextBox();
+            this.txtTenSupplier = new System.Windows.Forms.TextBox();
+            this.btSaveSupplier = new System.Windows.Forms.Button();
+            this.btCancelSupplier = new System.Windows.Forms.Button();
+            this.btAddSupplier = new System.Windows.Forms.Button();
+            this.txtIdSupplier = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btEditSupplier = new System.Windows.Forms.Button();
+            this.btDeleteSupplier = new System.Windows.Forms.Button();
+            this.dgvSupplier = new System.Windows.Forms.DataGridView();
+            this.SupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSearchSupplier = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btAllSupplier = new System.Windows.Forms.Button();
+            this.btSearchSupplier = new System.Windows.Forms.Button();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductSupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateExpiration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuaility)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -116,17 +133,19 @@
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.btnDelete);
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Controls.Add(this.txtSearch);
+            this.groupBox2.Controls.Add(this.btEditProduct);
+            this.groupBox2.Controls.Add(this.btDeleteProduct);
+            this.groupBox2.Controls.Add(this.dgvProduct);
+            this.groupBox2.Controls.Add(this.txtSearchProduct);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.btViewProduct);
+            this.groupBox2.Controls.Add(this.btSearchProduct);
             this.groupBox2.Location = new System.Drawing.Point(574, 18);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -136,43 +155,54 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quản lý sản phẩm";
             // 
-            // button1
+            // btEditProduct
             // 
-            this.button1.Location = new System.Drawing.Point(532, 477);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 54);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Sửa";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btEditProduct.Location = new System.Drawing.Point(532, 477);
+            this.btEditProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btEditProduct.Name = "btEditProduct";
+            this.btEditProduct.Size = new System.Drawing.Size(113, 54);
+            this.btEditProduct.TabIndex = 3;
+            this.btEditProduct.Text = "Sửa";
+            this.btEditProduct.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
+            // btDeleteProduct
             // 
-            this.btnDelete.Location = new System.Drawing.Point(411, 477);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(113, 54);
-            this.btnDelete.TabIndex = 3;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btDeleteProduct.Location = new System.Drawing.Point(411, 477);
+            this.btDeleteProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btDeleteProduct.Name = "btDeleteProduct";
+            this.btDeleteProduct.Size = new System.Drawing.Size(113, 54);
+            this.btDeleteProduct.TabIndex = 3;
+            this.btDeleteProduct.Text = "Xóa";
+            this.btDeleteProduct.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvProduct
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 145);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(678, 324);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.ProductSupplierID,
+            this.ProductTypeID,
+            this.Price,
+            this.Unit,
+            this.Amount,
+            this.DateAdd,
+            this.DateManufacture,
+            this.DateExpiration});
+            this.dgvProduct.Location = new System.Drawing.Point(26, 145);
+            this.dgvProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.Size = new System.Drawing.Size(678, 324);
+            this.dgvProduct.TabIndex = 7;
             // 
-            // txtSearch
+            // txtSearchProduct
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(160, 37);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(299, 34);
-            this.txtSearch.TabIndex = 5;
+            this.txtSearchProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchProduct.Location = new System.Drawing.Point(269, 38);
+            this.txtSearchProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchProduct.Name = "txtSearchProduct";
+            this.txtSearchProduct.Size = new System.Drawing.Size(299, 34);
+            this.txtSearchProduct.TabIndex = 5;
             // 
             // label6
             // 
@@ -181,19 +211,29 @@
             this.label6.Location = new System.Drawing.Point(21, 38);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 25);
+            this.label6.Size = new System.Drawing.Size(211, 25);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Mã sản phẩm";
+            this.label6.Text = "Mã sản phẩm hoặc tên";
             // 
-            // btnSearch
+            // btViewProduct
             // 
-            this.btnSearch.Location = new System.Drawing.Point(488, 33);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(128, 41);
-            this.btnSearch.TabIndex = 6;
-            this.btnSearch.Text = "Tìm kiếm";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btViewProduct.Location = new System.Drawing.Point(24, 96);
+            this.btViewProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btViewProduct.Name = "btViewProduct";
+            this.btViewProduct.Size = new System.Drawing.Size(128, 41);
+            this.btViewProduct.TabIndex = 6;
+            this.btViewProduct.Text = "Tìm kiếm";
+            this.btViewProduct.UseVisualStyleBackColor = true;
+            // 
+            // btSearchProduct
+            // 
+            this.btSearchProduct.Location = new System.Drawing.Point(576, 33);
+            this.btSearchProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btSearchProduct.Name = "btSearchProduct";
+            this.btSearchProduct.Size = new System.Drawing.Size(128, 41);
+            this.btSearchProduct.TabIndex = 6;
+            this.btSearchProduct.Text = "Tìm kiếm";
+            this.btSearchProduct.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -250,34 +290,34 @@
             // 
             this.txtProductID.Enabled = false;
             this.txtProductID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductID.Location = new System.Drawing.Point(175, 40);
+            this.txtProductID.Location = new System.Drawing.Point(153, 40);
             this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.ReadOnly = true;
-            this.txtProductID.Size = new System.Drawing.Size(323, 34);
+            this.txtProductID.Size = new System.Drawing.Size(345, 34);
             this.txtProductID.TabIndex = 1;
             // 
             // txtProductName
             // 
             this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(175, 82);
+            this.txtProductName.Location = new System.Drawing.Point(153, 82);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(323, 34);
+            this.txtProductName.Size = new System.Drawing.Size(345, 34);
             this.txtProductName.TabIndex = 1;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numQuaility);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.btnInsert);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.cbxProductType);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.txtPrice);
+            this.groupBox1.Controls.Add(this.numPrice);
+            this.groupBox1.Controls.Add(this.numAmount);
+            this.groupBox1.Controls.Add(this.dtpDateExpiration);
+            this.groupBox1.Controls.Add(this.dtpDateManufacture);
+            this.groupBox1.Controls.Add(this.btSaveProduct);
+            this.groupBox1.Controls.Add(this.btCancelProduct);
+            this.groupBox1.Controls.Add(this.btAddProduct);
+            this.groupBox1.Controls.Add(this.cbbSupplier);
+            this.groupBox1.Controls.Add(this.cbbProductType);
+            this.groupBox1.Controls.Add(this.txtUnit);
             this.groupBox1.Controls.Add(this.txtProductName);
             this.groupBox1.Controls.Add(this.txtProductID);
             this.groupBox1.Controls.Add(this.label8);
@@ -298,109 +338,102 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sản phẩm";
             // 
-            // numQuaility
+            // numAmount
             // 
-            this.numQuaility.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQuaility.Location = new System.Drawing.Point(371, 166);
-            this.numQuaility.Maximum = new decimal(new int[] {
+            this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numAmount.Location = new System.Drawing.Point(371, 166);
+            this.numAmount.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numQuaility.Name = "numQuaility";
-            this.numQuaility.Size = new System.Drawing.Size(126, 34);
-            this.numQuaility.TabIndex = 5;
-            this.numQuaility.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAmount.Name = "numAmount";
+            this.numAmount.Size = new System.Drawing.Size(126, 34);
+            this.numAmount.TabIndex = 5;
+            this.numAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dateTimePicker2
+            // dtpDateExpiration
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(175, 339);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(323, 34);
-            this.dateTimePicker2.TabIndex = 4;
+            this.dtpDateExpiration.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateExpiration.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateExpiration.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateExpiration.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateExpiration.Location = new System.Drawing.Point(153, 339);
+            this.dtpDateExpiration.Name = "dtpDateExpiration";
+            this.dtpDateExpiration.Size = new System.Drawing.Size(345, 34);
+            this.dtpDateExpiration.TabIndex = 4;
             // 
-            // dateTimePicker1
+            // dtpDateManufacture
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(175, 299);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(323, 34);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dtpDateManufacture.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateManufacture.CustomFormat = "dd/MM/yyyy";
+            this.dtpDateManufacture.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDateManufacture.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDateManufacture.Location = new System.Drawing.Point(153, 299);
+            this.dtpDateManufacture.Name = "dtpDateManufacture";
+            this.dtpDateManufacture.Size = new System.Drawing.Size(345, 34);
+            this.dtpDateManufacture.TabIndex = 4;
             // 
-            // button2
+            // btSaveProduct
             // 
-            this.button2.Location = new System.Drawing.Point(234, 477);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 54);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Lưu";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btSaveProduct.Location = new System.Drawing.Point(234, 477);
+            this.btSaveProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btSaveProduct.Name = "btSaveProduct";
+            this.btSaveProduct.Size = new System.Drawing.Size(113, 54);
+            this.btSaveProduct.TabIndex = 3;
+            this.btSaveProduct.Text = "Lưu";
+            this.btSaveProduct.UseVisualStyleBackColor = true;
+            this.btSaveProduct.Visible = false;
             // 
-            // btnSave
+            // btCancelProduct
             // 
-            this.btnSave.Location = new System.Drawing.Point(371, 477);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(113, 54);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Hủy";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btCancelProduct.Location = new System.Drawing.Point(371, 477);
+            this.btCancelProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btCancelProduct.Name = "btCancelProduct";
+            this.btCancelProduct.Size = new System.Drawing.Size(113, 54);
+            this.btCancelProduct.TabIndex = 3;
+            this.btCancelProduct.Text = "Hủy";
+            this.btCancelProduct.UseVisualStyleBackColor = true;
+            this.btCancelProduct.Visible = false;
             // 
-            // btnInsert
+            // btAddProduct
             // 
-            this.btnInsert.Location = new System.Drawing.Point(371, 380);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(113, 54);
-            this.btnInsert.TabIndex = 3;
-            this.btnInsert.Text = "Thêm";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.btAddProduct.Location = new System.Drawing.Point(371, 415);
+            this.btAddProduct.Margin = new System.Windows.Forms.Padding(4);
+            this.btAddProduct.Name = "btAddProduct";
+            this.btAddProduct.Size = new System.Drawing.Size(113, 54);
+            this.btAddProduct.TabIndex = 3;
+            this.btAddProduct.Text = "Thêm";
+            this.btAddProduct.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cbbSupplier
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(174, 251);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(323, 37);
-            this.comboBox2.TabIndex = 2;
+            this.cbbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbSupplier.FormattingEnabled = true;
+            this.cbbSupplier.Location = new System.Drawing.Point(153, 251);
+            this.cbbSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbSupplier.Name = "cbbSupplier";
+            this.cbbSupplier.Size = new System.Drawing.Size(344, 37);
+            this.cbbSupplier.TabIndex = 2;
             // 
-            // cbxProductType
+            // cbbProductType
             // 
-            this.cbxProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxProductType.FormattingEnabled = true;
-            this.cbxProductType.Location = new System.Drawing.Point(175, 208);
-            this.cbxProductType.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxProductType.Name = "cbxProductType";
-            this.cbxProductType.Size = new System.Drawing.Size(323, 37);
-            this.cbxProductType.TabIndex = 2;
+            this.cbbProductType.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbProductType.FormattingEnabled = true;
+            this.cbbProductType.Location = new System.Drawing.Point(153, 208);
+            this.cbbProductType.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbProductType.Name = "cbbProductType";
+            this.cbbProductType.Size = new System.Drawing.Size(345, 37);
+            this.cbbProductType.TabIndex = 2;
             // 
-            // textBox5
+            // txtUnit
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(392, 124);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(105, 34);
-            this.textBox5.TabIndex = 1;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(175, 124);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(153, 34);
-            this.txtPrice.TabIndex = 1;
+            this.txtUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnit.Location = new System.Drawing.Point(392, 124);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(105, 34);
+            this.txtUnit.TabIndex = 1;
             // 
             // label8
             // 
@@ -691,6 +724,17 @@
             this.label16.TabIndex = 4;
             this.label16.Text = "Nhập mã hoặc Tên";
             // 
+            // btXemProductType
+            // 
+            this.btXemProductType.Location = new System.Drawing.Point(26, 96);
+            this.btXemProductType.Margin = new System.Windows.Forms.Padding(4);
+            this.btXemProductType.Name = "btXemProductType";
+            this.btXemProductType.Size = new System.Drawing.Size(109, 41);
+            this.btXemProductType.TabIndex = 6;
+            this.btXemProductType.Text = "Hiển thị tất cả";
+            this.btXemProductType.UseVisualStyleBackColor = true;
+            this.btXemProductType.Click += new System.EventHandler(this.btXemProductType_Click);
+            // 
             // btSearch
             // 
             this.btSearch.Location = new System.Drawing.Point(576, 33);
@@ -714,25 +758,18 @@
             this.tabPage3.Text = "Nhà cung cấp";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btXemProductType
-            // 
-            this.btXemProductType.Location = new System.Drawing.Point(26, 96);
-            this.btXemProductType.Margin = new System.Windows.Forms.Padding(4);
-            this.btXemProductType.Name = "btXemProductType";
-            this.btXemProductType.Size = new System.Drawing.Size(109, 41);
-            this.btXemProductType.TabIndex = 6;
-            this.btXemProductType.Text = "Hiển thị tất cả";
-            this.btXemProductType.UseVisualStyleBackColor = true;
-            this.btXemProductType.Click += new System.EventHandler(this.btXemProductType_Click);
-            // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Controls.Add(this.txtTen);
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.button4);
-            this.groupBox5.Controls.Add(this.button5);
-            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.txtPhoneSupplier);
+            this.groupBox5.Controls.Add(this.txtAddressSupplier);
+            this.groupBox5.Controls.Add(this.txtEmailSupplier);
+            this.groupBox5.Controls.Add(this.txtTenSupplier);
+            this.groupBox5.Controls.Add(this.btSaveSupplier);
+            this.groupBox5.Controls.Add(this.btCancelSupplier);
+            this.groupBox5.Controls.Add(this.btAddSupplier);
+            this.groupBox5.Controls.Add(this.txtIdSupplier);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.label11);
@@ -745,64 +782,103 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nhà cung cấp";
             // 
-            // textBox1
+            // txtPhoneSupplier
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(175, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(322, 34);
-            this.textBox1.TabIndex = 4;
+            this.txtPhoneSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneSupplier.Location = new System.Drawing.Point(176, 204);
+            this.txtPhoneSupplier.Name = "txtPhoneSupplier";
+            this.txtPhoneSupplier.Size = new System.Drawing.Size(322, 34);
+            this.txtPhoneSupplier.TabIndex = 4;
             // 
-            // txtTen
+            // txtAddressSupplier
             // 
-            this.txtTen.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTen.Location = new System.Drawing.Point(176, 81);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(322, 34);
-            this.txtTen.TabIndex = 4;
+            this.txtAddressSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddressSupplier.Location = new System.Drawing.Point(175, 164);
+            this.txtAddressSupplier.Name = "txtAddressSupplier";
+            this.txtAddressSupplier.Size = new System.Drawing.Size(322, 34);
+            this.txtAddressSupplier.TabIndex = 4;
             // 
-            // button3
+            // txtEmailSupplier
             // 
-            this.button3.Location = new System.Drawing.Point(252, 297);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 54);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Lưu";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
+            this.txtEmailSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailSupplier.Location = new System.Drawing.Point(175, 124);
+            this.txtEmailSupplier.Name = "txtEmailSupplier";
+            this.txtEmailSupplier.Size = new System.Drawing.Size(322, 34);
+            this.txtEmailSupplier.TabIndex = 4;
             // 
-            // button4
+            // txtTenSupplier
             // 
-            this.button4.Location = new System.Drawing.Point(385, 297);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 54);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Hủy";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
+            this.txtTenSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenSupplier.Location = new System.Drawing.Point(176, 81);
+            this.txtTenSupplier.Name = "txtTenSupplier";
+            this.txtTenSupplier.Size = new System.Drawing.Size(322, 34);
+            this.txtTenSupplier.TabIndex = 4;
             // 
-            // button5
+            // btSaveSupplier
             // 
-            this.button5.Location = new System.Drawing.Point(385, 215);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 54);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Thêm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btSaveSupplier.Location = new System.Drawing.Point(275, 477);
+            this.btSaveSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btSaveSupplier.Name = "btSaveSupplier";
+            this.btSaveSupplier.Size = new System.Drawing.Size(113, 54);
+            this.btSaveSupplier.TabIndex = 3;
+            this.btSaveSupplier.Text = "Lưu";
+            this.btSaveSupplier.UseVisualStyleBackColor = true;
+            this.btSaveSupplier.Visible = false;
+            this.btSaveSupplier.Click += new System.EventHandler(this.btSaveSupplier_Click);
             // 
-            // textBox3
+            // btCancelSupplier
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(175, 40);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(323, 34);
-            this.textBox3.TabIndex = 1;
+            this.btCancelSupplier.Location = new System.Drawing.Point(396, 477);
+            this.btCancelSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btCancelSupplier.Name = "btCancelSupplier";
+            this.btCancelSupplier.Size = new System.Drawing.Size(113, 54);
+            this.btCancelSupplier.TabIndex = 3;
+            this.btCancelSupplier.Text = "Hủy";
+            this.btCancelSupplier.UseVisualStyleBackColor = true;
+            this.btCancelSupplier.Visible = false;
+            this.btCancelSupplier.Click += new System.EventHandler(this.btCancelSupplier_Click);
+            // 
+            // btAddSupplier
+            // 
+            this.btAddSupplier.Location = new System.Drawing.Point(396, 415);
+            this.btAddSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btAddSupplier.Name = "btAddSupplier";
+            this.btAddSupplier.Size = new System.Drawing.Size(113, 54);
+            this.btAddSupplier.TabIndex = 3;
+            this.btAddSupplier.Text = "Thêm";
+            this.btAddSupplier.UseVisualStyleBackColor = true;
+            this.btAddSupplier.Click += new System.EventHandler(this.btAddSupplier_Click);
+            // 
+            // txtIdSupplier
+            // 
+            this.txtIdSupplier.Enabled = false;
+            this.txtIdSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdSupplier.Location = new System.Drawing.Point(175, 40);
+            this.txtIdSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdSupplier.Name = "txtIdSupplier";
+            this.txtIdSupplier.ReadOnly = true;
+            this.txtIdSupplier.Size = new System.Drawing.Size(323, 34);
+            this.txtIdSupplier.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(22, 200);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(132, 36);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "SĐT";
+            // 
+            // label19
+            // 
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(22, 164);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(132, 36);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Địa chỉ";
             // 
             // label9
             // 
@@ -812,7 +888,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(132, 36);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Mô tả";
+            this.label9.Text = "Email";
             // 
             // label10
             // 
@@ -836,13 +912,13 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button6);
-            this.groupBox6.Controls.Add(this.button7);
-            this.groupBox6.Controls.Add(this.dataGridView2);
-            this.groupBox6.Controls.Add(this.textBox4);
+            this.groupBox6.Controls.Add(this.btEditSupplier);
+            this.groupBox6.Controls.Add(this.btDeleteSupplier);
+            this.groupBox6.Controls.Add(this.dgvSupplier);
+            this.groupBox6.Controls.Add(this.txtSearchSupplier);
             this.groupBox6.Controls.Add(this.label12);
-            this.groupBox6.Controls.Add(this.button8);
-            this.groupBox6.Controls.Add(this.button9);
+            this.groupBox6.Controls.Add(this.btAllSupplier);
+            this.groupBox6.Controls.Add(this.btSearchSupplier);
             this.groupBox6.Location = new System.Drawing.Point(568, 23);
             this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
@@ -852,71 +928,89 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Quản lý Nhà cung cấp";
             // 
-            // button6
+            // btEditSupplier
             // 
-            this.button6.Location = new System.Drawing.Point(532, 477);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(113, 54);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Sửa";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btEditSupplier.Location = new System.Drawing.Point(532, 477);
+            this.btEditSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btEditSupplier.Name = "btEditSupplier";
+            this.btEditSupplier.Size = new System.Drawing.Size(113, 54);
+            this.btEditSupplier.TabIndex = 3;
+            this.btEditSupplier.Text = "Sửa";
+            this.btEditSupplier.UseVisualStyleBackColor = true;
+            this.btEditSupplier.Click += new System.EventHandler(this.btEditSupplier_Click);
             // 
-            // button7
+            // btDeleteSupplier
             // 
-            this.button7.Location = new System.Drawing.Point(411, 477);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(113, 54);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "Xóa";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btDeleteSupplier.Location = new System.Drawing.Point(411, 477);
+            this.btDeleteSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btDeleteSupplier.Name = "btDeleteSupplier";
+            this.btDeleteSupplier.Size = new System.Drawing.Size(113, 54);
+            this.btDeleteSupplier.TabIndex = 3;
+            this.btDeleteSupplier.Text = "Xóa";
+            this.btDeleteSupplier.UseVisualStyleBackColor = true;
+            this.btDeleteSupplier.Click += new System.EventHandler(this.btDeleteSupplier_Click);
             // 
-            // dataGridView2
+            // dgvSupplier
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(26, 145);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(678, 324);
-            this.dataGridView2.TabIndex = 7;
+            this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSupplier.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SupplierID,
+            this.SupplierName,
+            this.Email,
+            this.Address,
+            this.PhoneNumber});
+            this.dgvSupplier.Location = new System.Drawing.Point(26, 145);
+            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSupplier.Name = "dgvSupplier";
+            this.dgvSupplier.Size = new System.Drawing.Size(690, 324);
+            this.dgvSupplier.TabIndex = 7;
+            this.dgvSupplier.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSupplier_RowEnter);
             // 
-            // dataGridViewTextBoxColumn1
+            // SupplierID
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ProductTypeID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mã ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.SupplierID.DataPropertyName = "SupplierID";
+            this.SupplierID.HeaderText = "Mã ID";
+            this.SupplierID.Name = "SupplierID";
+            this.SupplierID.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // SupplierName
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ProductTypeName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.SupplierName.DataPropertyName = "SupplierName";
+            this.SupplierName.HeaderText = "Tên";
+            this.SupplierName.Name = "SupplierName";
+            this.SupplierName.ReadOnly = true;
+            this.SupplierName.Width = 200;
             // 
-            // dataGridViewTextBoxColumn3
+            // Email
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Describe";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Mô tả";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 200;
             // 
-            // textBox4
+            // Address
             // 
-            this.textBox4.AcceptsReturn = true;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(269, 37);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(299, 34);
-            this.textBox4.TabIndex = 5;
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Địa chỉ";
+            this.Address.Name = "Address";
+            this.Address.Width = 300;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.DataPropertyName = "PhoneNumber";
+            this.PhoneNumber.HeaderText = "SĐT";
+            this.PhoneNumber.Name = "PhoneNumber";
+            // 
+            // txtSearchSupplier
+            // 
+            this.txtSearchSupplier.AcceptsReturn = true;
+            this.txtSearchSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchSupplier.Location = new System.Drawing.Point(269, 37);
+            this.txtSearchSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchSupplier.Name = "txtSearchSupplier";
+            this.txtSearchSupplier.Size = new System.Drawing.Size(299, 34);
+            this.txtSearchSupplier.TabIndex = 5;
             // 
             // label12
             // 
@@ -929,25 +1023,103 @@
             this.label12.TabIndex = 4;
             this.label12.Text = "Nhập mã hoặc Tên";
             // 
-            // button8
+            // btAllSupplier
             // 
-            this.button8.Location = new System.Drawing.Point(26, 96);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(109, 41);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "Hiển thị tất cả";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btAllSupplier.Location = new System.Drawing.Point(26, 96);
+            this.btAllSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btAllSupplier.Name = "btAllSupplier";
+            this.btAllSupplier.Size = new System.Drawing.Size(109, 41);
+            this.btAllSupplier.TabIndex = 6;
+            this.btAllSupplier.Text = "Hiển thị tất cả";
+            this.btAllSupplier.UseVisualStyleBackColor = true;
+            this.btAllSupplier.Click += new System.EventHandler(this.btXemSupplier_Click);
             // 
-            // button9
+            // btSearchSupplier
             // 
-            this.button9.Location = new System.Drawing.Point(576, 33);
-            this.button9.Margin = new System.Windows.Forms.Padding(4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(128, 41);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "Tìm kiếm";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btSearchSupplier.Location = new System.Drawing.Point(576, 33);
+            this.btSearchSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.btSearchSupplier.Name = "btSearchSupplier";
+            this.btSearchSupplier.Size = new System.Drawing.Size(128, 41);
+            this.btSearchSupplier.TabIndex = 6;
+            this.btSearchSupplier.Text = "Tìm kiếm";
+            this.btSearchSupplier.UseVisualStyleBackColor = true;
+            this.btSearchSupplier.Click += new System.EventHandler(this.btSearchSupplier_Click);
+            // 
+            // numPrice
+            // 
+            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numPrice.Location = new System.Drawing.Point(153, 123);
+            this.numPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(182, 34);
+            this.numPrice.TabIndex = 5;
+            this.numPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "Mã sản phẩm";
+            this.ProductID.Name = "ProductID";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Tên sản phẩm";
+            this.ProductName.Name = "ProductName";
+            // 
+            // ProductSupplierID
+            // 
+            this.ProductSupplierID.DataPropertyName = "SupplierID";
+            this.ProductSupplierID.HeaderText = "Nhà cung cấp";
+            this.ProductSupplierID.Name = "ProductSupplierID";
+            // 
+            // ProductTypeID
+            // 
+            this.ProductTypeID.DataPropertyName = "ProductTypeID";
+            this.ProductTypeID.HeaderText = "Loại sản phẩm";
+            this.ProductTypeID.Name = "ProductTypeID";
+            this.ProductTypeID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductTypeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.Name = "Price";
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "Đơn vị";
+            this.Unit.Name = "Unit";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Số lượng";
+            this.Amount.Name = "Amount";
+            // 
+            // DateAdd
+            // 
+            this.DateAdd.DataPropertyName = "DateAdd";
+            this.DateAdd.HeaderText = "Ngày tạo";
+            this.DateAdd.Name = "DateAdd";
+            // 
+            // DateManufacture
+            // 
+            this.DateManufacture.DataPropertyName = "DateManufacture";
+            this.DateManufacture.HeaderText = "Ngày sản xuất";
+            this.DateManufacture.Name = "DateManufacture";
+            // 
+            // DateExpiration
+            // 
+            this.DateExpiration.DataPropertyName = "DateExpiration";
+            this.DateExpiration.HeaderText = "Ngày hết hạn";
+            this.DateExpiration.Name = "DateExpiration";
             // 
             // frm_Product
             // 
@@ -960,10 +1132,10 @@
             this.Text = "Product";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuaility)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -977,7 +1149,8 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -992,19 +1165,19 @@
         private System.Windows.Forms.TextBox txtProductID;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbxProductType;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.ComboBox cbbProductType;
+        private System.Windows.Forms.Button btDeleteProduct;
+        private System.Windows.Forms.Button btCancelProduct;
+        private System.Windows.Forms.Button btAddProduct;
+        private System.Windows.Forms.TextBox txtSearchProduct;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NumericUpDown numQuaility;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btSearchProduct;
+        private System.Windows.Forms.DataGridView dgvProduct;
+        private System.Windows.Forms.Button btEditProduct;
+        private System.Windows.Forms.Button btSaveProduct;
+        private System.Windows.Forms.NumericUpDown numAmount;
+        private System.Windows.Forms.DateTimePicker dtpDateExpiration;
+        private System.Windows.Forms.DateTimePicker dtpDateManufacture;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabControl tabControl1;
@@ -1025,10 +1198,9 @@
         private System.Windows.Forms.TextBox txtTimType;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbbSupplier;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox txtTenCategory;
@@ -1038,25 +1210,43 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Describe;
         private System.Windows.Forms.Button btXemProductType;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtTen;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtEmailSupplier;
+        private System.Windows.Forms.TextBox txtTenSupplier;
+        private System.Windows.Forms.Button btSaveSupplier;
+        private System.Windows.Forms.Button btCancelSupplier;
+        private System.Windows.Forms.Button btAddSupplier;
+        private System.Windows.Forms.TextBox txtIdSupplier;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btEditSupplier;
+        private System.Windows.Forms.Button btDeleteSupplier;
+        private System.Windows.Forms.DataGridView dgvSupplier;
+        private System.Windows.Forms.TextBox txtSearchSupplier;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btAllSupplier;
+        private System.Windows.Forms.Button btSearchSupplier;
+        private System.Windows.Forms.TextBox txtPhoneSupplier;
+        private System.Windows.Forms.TextBox txtAddressSupplier;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.Button btViewProduct;
+        private System.Windows.Forms.NumericUpDown numPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductSupplierID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateManufacture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateExpiration;
     }
 }

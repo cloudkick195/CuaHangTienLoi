@@ -45,6 +45,7 @@
     <Compile Include="ScannerBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignOnBUS.cs" />
+    <Compile Include="SupplierBUS.cs" />
     <Compile Include="Tender_CusBUS.cs" />
   </ItemGroup>
   <ItemGroup>

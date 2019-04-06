@@ -42,10 +42,12 @@
   <ItemGroup>
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="ProductDAO.cs" />
     <Compile Include="ProductTypeDAO.cs" />
     <Compile Include="ScannerDao.cs" />
     <Compile Include="SigOnDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupplierDAO.cs" />
     <Compile Include="Tender_CusDAO.cs" />
   </ItemGroup>
   <ItemGroup>

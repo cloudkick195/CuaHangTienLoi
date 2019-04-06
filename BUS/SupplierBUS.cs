@@ -10,38 +10,39 @@ using DTO;
 
 namespace BUS
 {
-    public class ProductTypeBUS
+    public class SupplierBUS
     {
         public DataTable GetData()
         {
-            return new ProductTypeDAO().GetData();
+            return new SupplierDAO().GetData();
         }
-        public List<ProductType> GetListProductType()
+
+        public List<Supplier> GetListSupplier()
         {
-            return new ProductTypeDAO().GetListProductType();
+            return new SupplierDAO().GetListSupplier();
         }
         public DataTable FindItems(string item)
         {
             try
             {
-                return new ProductTypeDAO().FindItems(item);
+                return new SupplierDAO().FindItems(item);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-        public int Insert(ProductType obj)
+        public int Insert(Supplier obj)
         {
             try
             {
 
-                if (checkName(obj.productTypeName) == false)
+                if (checkName(obj.supplierName) == false)
                 {
                     return 0;
                 }
                 
-                return new ProductTypeDAO().Insert(obj);
+                return new SupplierDAO().Insert(obj);
             }
             catch (Exception ex)
             {
@@ -52,7 +53,7 @@ namespace BUS
         {
             try
             {
-                return new ProductTypeDAO().checkName(typeName);
+                return new SupplierDAO().checkName(typeName);
             }
             catch (Exception ex)
             {
@@ -60,12 +61,12 @@ namespace BUS
             }
         }
 
-        public int Update(ProductType obj)
+        public int Update(Supplier obj)
         {
             try
             {
 
-                return new ProductTypeDAO().Update(obj);
+                return new SupplierDAO().Update(obj);
 
             }
             catch (Exception ex)
@@ -77,7 +78,7 @@ namespace BUS
         {
             try
             {
-                return new ProductTypeDAO().Delete(id);
+                return new SupplierDAO().Delete(id);
             }
             catch (Exception ex)
             {

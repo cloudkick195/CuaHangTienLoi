@@ -14,17 +14,29 @@ namespace ConvenientStore_Pro
 {
     public partial class frm_Product : Form
     {
-        private string queryProductType = "";
+        private string queryObj = "";
+
         public frm_Product()
         {
             InitializeComponent();
             LoadProductType();
+            LoadSupplier();
+            LoadProductTypeCombobox(cbbProductType);
+            LoadSupplierCombobox(cbbSupplier);
         }
+
         private void LoadProductType()
         {
             ProductTypeBUS productTypeTable = new ProductTypeBUS();
             dgvProductType.DataSource = productTypeTable.GetData();
         }
+
+        private void LoadSupplier()
+        {
+            SupplierBUS supplier = new SupplierBUS();
+            dgvSupplier.DataSource = supplier.GetData();
+        }
+
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -39,7 +51,8 @@ namespace ConvenientStore_Pro
         {
 
         }
-        private void ControlButton(int type)
+
+        private void ControlButtonProductType(int type)
         {
             btAdd.Visible = type == 1 ? true : false;
             btSua.Visible = type == 1 ? true : false;
@@ -50,46 +63,145 @@ namespace ConvenientStore_Pro
 
         }
 
+        private void ControlButtonProduct(int type)
+        {
+            btAddProduct.Visible = type == 1 ? true : false;
+            btEditProduct.Visible = type == 1 ? true : false;
+            btDeleteProduct.Visible = type == 1 ? true : false;
+
+            btSaveProduct.Visible = type == 2 ? true : false;
+            btCancelProduct.Visible = type == 2 ? true : false;
+
+        }
+
+        private void ControlButtonSupplier(int type)
+        {
+            btAddSupplier.Visible = type == 1 ? true : false;
+            btEditSupplier.Visible = type == 1 ? true : false;
+            btDeleteSupplier.Visible = type == 1 ? true : false;
+
+            btSaveSupplier.Visible = type == 2 ? true : false;
+            btCancelSupplier.Visible = type == 2 ? true : false;
+
+        }
+
         private void btSua_Click(object sender, EventArgs e)
         {
-            queryProductType = "edit";
-            ControlButton(2);
+            queryObj = "edit";
+            ControlButtonProductType(2);
+        }
+
+        private void btEditSupplier_Click(object sender, EventArgs e)
+        {
+            queryObj = "edit";
+            ControlButtonSupplier(2);
+        }
+
+        private void btEditProduct_Click(object sender, EventArgs e)
+        {
+            queryObj = "edit";
+            ControlButtonProduct(2);
         }
 
         private void btXoa_Click(object sender, EventArgs e)
         {
-            queryProductType = "delete";
-            ExcuteProductType(queryProductType);
+            queryObj = "delete";
+            ExcuteProductType();
             ProductTypeField();
+
+        }
+
+        private void btDeleteSupplier_Click(object sender, EventArgs e)
+        {
+            queryObj = "delete";
+            ExcuteSupplier();
+            SupplierField();
+        }
+
+        private void btDeleteProduct_Click(object sender, EventArgs e)
+        {
+            queryObj = "delete";
+            ExcuteProduct();
+            ProductField();
 
         }
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            queryProductType = "add";
-            ControlButton(2);
+            queryObj = "add";
+            ControlButtonProductType(2);
             ProductTypeField();
         }
+
+        private void btAddProduct_Click(object sender, EventArgs e)
+        {
+            queryObj = "add";
+            ControlButtonProduct(2);
+            ProductField();
+        }
+
+        private void btAddSupplier_Click(object sender, EventArgs e)
+        {
+            queryObj = "add";
+            ControlButtonSupplier(2);
+            SupplierField();
+        }
+
         private void ProductTypeField()
         {
             txtMaCategory.Text = "";
             txtTenCategory.Text = "";
             txtMoTaCategory.Text = "";
         }
+
+        private void ProductField()
+        {
+            txtProductID.Text = "";
+            txtProductName.Text = "";
+            cbbProductType.Text = "";
+            cbbSupplier.Text = "";
+            numPrice.Value = 0;
+            txtUnit.Text = "";
+            numAmount.Value = 0;
+            dtpDateManufacture.Value = System.DateTime.Now;
+            dtpDateExpiration.Value = System.DateTime.Now;
+        }
+
+        private void SupplierField()
+        {
+            txtIdSupplier.Text = "";
+            txtTenSupplier.Text = "";
+            txtEmailSupplier.Text = "";
+            txtAddressSupplier.Text = "";
+            txtPhoneSupplier.Text = "";
+        }
+
         private void btLuu_Click(object sender, EventArgs e)
         {
-            ControlButton(1);
-            ExcuteProductType(queryProductType);
-            
+            ControlButtonProductType(1);
+            ExcuteProductType();
         }
-        private void ExcuteProductType(string query)
+
+        private void btSaveSupplier_Click(object sender, EventArgs e)
+        {
+            ControlButtonSupplier(1);
+            ExcuteSupplier();
+        }
+
+        private void btSaveProduct_Click(object sender, EventArgs e)
+        {
+            ControlButtonProduct(1);
+            ExcuteProduct();
+        }
+
+        private void ExcuteProductType()
         {
             string txtTenCategory = this.txtTenCategory.Text.Trim();
             string txtMoTaCategory = this.txtMoTaCategory.Text.Trim();
             string maCategory = this.txtMaCategory.Text.Trim();
             ProductTypeBUS productTypeBUS = new ProductTypeBUS();
 
-            if (queryProductType == "add")
+            if (queryObj == "add")
             {
 
                 if (txtTenCategory == "")
@@ -110,8 +222,9 @@ namespace ConvenientStore_Pro
 
                 productTypeBUS.Insert(objProductType);
                 LoadProductType();
+                MessageBox.Show("Thêm thành công");
             }
-            else if(queryProductType == "edit")
+            else if(queryObj == "edit")
             {
                 if (txtTenCategory == "")
                 {
@@ -123,14 +236,16 @@ namespace ConvenientStore_Pro
 
                 productTypeBUS.Update(objProductType);
                 LoadProductType();
+                MessageBox.Show("Sửa thành công");
             }
-            else if (queryProductType == "delete")
+            else if (queryObj == "delete")
             {
                 DialogResult dialogResult = MessageBox.Show("Xóa", "Bạn muốn xóa?", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     productTypeBUS.Delete(Int32.Parse(maCategory));
                     LoadProductType();
+                    MessageBox.Show("Xóa thành công");
                 }
             }
             else
@@ -143,11 +258,96 @@ namespace ConvenientStore_Pro
                 dgvProductType.DataSource = productTypeBUS.FindItems(txtTimType.Text);
 
             }
+            LoadProductTypeCombobox(cbbProductType);
+            
 
         }
+
+        private void ExcuteSupplier()
+        {
+            string txtTenSupplier = this.txtTenSupplier.Text.Trim();
+            string txtEmailSupplier = this.txtEmailSupplier.Text.Trim();
+            string txtAddressSupplier = this.txtAddressSupplier.Text.Trim();
+            string txtPhoneSupplier = this.txtPhoneSupplier.Text.Trim();
+            string txtIdSupplier = this.txtIdSupplier.Text.Trim();
+
+            SupplierBUS supplierBUS = new SupplierBUS();
+
+            if (queryObj == "add")
+            {
+
+                if (txtTenSupplier == "")
+                {
+                    DialogResult result = MessageBox.Show("Nhap Ten!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                bool check = supplierBUS.checkName(txtTenSupplier);
+
+                if (check == false)
+                {
+                    DialogResult result = MessageBox.Show("Ten bi trung!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Supplier obj = new Supplier(txtTenSupplier, txtEmailSupplier, txtAddressSupplier, txtPhoneSupplier);
+
+                supplierBUS.Insert(obj);
+                LoadSupplier();
+                MessageBox.Show("Thêm thành công");
+            }
+            else if (queryObj == "edit")
+            {
+                if (txtTenSupplier == "")
+                {
+                    MessageBox.Show("Nhap Ten!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Supplier obj = new Supplier(Int32.Parse(txtIdSupplier), txtTenSupplier, txtEmailSupplier, txtAddressSupplier, txtPhoneSupplier);
+
+                supplierBUS.Update(obj);
+                LoadSupplier();
+                MessageBox.Show("Sửa thành công");
+            }
+            else if (queryObj == "delete")
+            {
+                DialogResult dialogResult = MessageBox.Show("Xóa", "Bạn muốn xóa?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    supplierBUS.Delete(Int32.Parse(txtIdSupplier));
+                    LoadSupplier();
+                    MessageBox.Show("Xóa thành công");
+                }
+            }
+            else
+            {
+                if (txtSearchSupplier.Text == "")
+                {
+                    MessageBox.Show("Nhap Ten hoac ma!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                dgvSupplier.DataSource = supplierBUS.FindItems(txtSearchSupplier.Text);
+
+            }
+            LoadSupplierCombobox(cbbSupplier);
+        }
+
         private void btHuy_Click(object sender, EventArgs e)
         {
-            ControlButton(1);
+            ControlButtonProductType(1);
+            LoadProductType();
+        }
+
+        private void btCancelSupplier_Click(object sender, EventArgs e)
+        {
+            ControlButtonSupplier(1);
+            LoadSupplier();
+        }
+
+        private void btCancelProduct_Click(object sender, EventArgs e)
+        {
+            ControlButtonProduct(1);
+            LoadProduct();
         }
 
         private void txtTenCategory_TextChanged(object sender, EventArgs e)
@@ -162,8 +362,21 @@ namespace ConvenientStore_Pro
 
         private void btSearch_Click(object sender, EventArgs e)
         {
-            queryProductType = "search";
-            ExcuteProductType(queryProductType);
+            queryObj = "search";
+            ExcuteProductType();
+        }
+
+        private void btSearchProdcut_Click(object sender, EventArgs e)
+        {
+            queryObj = "search";
+            ExcuteProduct
+();
+        }
+
+        private void btSearchSupplier_Click(object sender, EventArgs e)
+        {
+            queryObj = "search";
+            ExcuteSupplier();
         }
 
         private void dgvProductType_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -174,6 +387,31 @@ namespace ConvenientStore_Pro
             txtMoTaCategory.Text = dgvProductType["Describe", rowindex].Value.ToString();
         }
 
+        private void dgvProduct_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+
+            txtProductID.Text = dgvProduct["ProductID", rowindex].Value.ToString();
+            txtProductName.Text = dgvProduct["ProductName", rowindex].Value.ToString();
+            cbbProductType.Text = dgvProduct["SupplierID", rowindex].Value.ToString();
+            cbbSupplier.Text = dgvProduct["ProductTypeID", rowindex].Value.ToString();
+            numPrice.Value = dgvProduct["Price", rowindex].Value;
+            txtUnit.Text = dgvProduct["Unit", rowindex].Value.ToString();
+            numAmount.Value = dgvProduct["Amount", rowindex].Value;
+            dtpDateManufacture.Value = dgvProduct["DateManufacture", rowindex].Value.ToString();
+            dtpDateExpiration.Value = dgvProduct["DateExpiration", rowindex].Value.ToString();
+        }
+
+        private void dgvSupplier_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowindex = e.RowIndex;
+            txtIdSupplier.Text = dgvSupplier["SupplierID", rowindex].Value.ToString();
+            txtTenSupplier.Text = dgvSupplier["SupplierName", rowindex].Value.ToString();
+            txtEmailSupplier.Text = dgvSupplier["Email", rowindex].Value.ToString();
+            txtAddressSupplier.Text = dgvSupplier["Address", rowindex].Value.ToString();
+            txtPhoneSupplier.Text = dgvSupplier["PhoneNumber", rowindex].Value.ToString();
+        }
+
         private void dgvProductType_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
@@ -182,6 +420,24 @@ namespace ConvenientStore_Pro
         private void btXemProductType_Click(object sender, EventArgs e)
         {
             LoadProductType();
+        }
+        private void btXemSupplier_Click(object sender, EventArgs e)
+        {
+            LoadSupplier();
+        }
+
+        void LoadProductTypeCombobox(ComboBox cb)
+        {
+            ProductTypeBUS ptb = new ProductTypeBUS();
+            cb.DataSource = ptb.GetListProductType();
+            cb.DisplayMember = "ProductTypeName";
+        }
+
+        void LoadSupplierCombobox(ComboBox cb)
+        {
+            SupplierBUS ptb = new SupplierBUS();
+            cb.DataSource = ptb.GetListSupplier();
+            cb.DisplayMember = "SupplierName";
         }
     }
 }

@@ -19,10 +19,18 @@ namespace ConvenientStore_Pro
         public frm_Product()
         {
             InitializeComponent();
+            LoadProduct();
             LoadProductType();
             LoadSupplier();
             LoadProductTypeCombobox(cbbProductType);
             LoadSupplierCombobox(cbbSupplier);
+        }
+
+        private void LoadProduct()
+        {
+            ProductBUS productTable = new ProductBUS();
+            dgvProduct.DataSource = productTable.GetData();
+            dgvProduct.AllowUserToAddRows = false;
         }
 
         private void LoadProductType()
@@ -158,13 +166,15 @@ namespace ConvenientStore_Pro
         {
             txtProductID.Text = "";
             txtProductName.Text = "";
-            cbbProductType.Text = "";
-            cbbSupplier.Text = "";
+            cbbProductType.SelectedIndex = -1;
+            cbbSupplier.SelectedIndex = -1;
+            cbbProductType.SelectedIndex = 0;
+            cbbSupplier.SelectedIndex = 0;
             numPrice.Value = 0;
             txtUnit.Text = "";
             numAmount.Value = 0;
             dtpDateManufacture.Value = System.DateTime.Now;
-            dtpDateExpiration.Value = System.DateTime.Now;
+            dtpDateExpiration.Value = System.DateTime.Now.AddDays(1);
         }
 
         private void SupplierField()
@@ -184,14 +194,99 @@ namespace ConvenientStore_Pro
 
         private void btSaveSupplier_Click(object sender, EventArgs e)
         {
-            ControlButtonSupplier(1);
             ExcuteSupplier();
+            ControlButtonSupplier(1);
         }
 
         private void btSaveProduct_Click(object sender, EventArgs e)
         {
             ControlButtonProduct(1);
             ExcuteProduct();
+        }
+
+        private void ExcuteProduct()
+        {
+            string productID = this.txtProductID.Text.Trim();
+            string productName = this.txtProductName.Text.Trim();
+            int price = (int)this.numPrice.Value;
+            string unit = txtUnit.Text.Trim();
+            int amount = (int)this.numAmount.Value;
+            int productType = (cbbProductType.SelectedItem as ProductType).productTypeID;
+            int supplier = (cbbSupplier.SelectedItem as Supplier).supplierID;
+            DateTime dateAdd = DateTime.Now;
+            DateTime dateManufacture = dtpDateManufacture.Value;
+            DateTime dateExpiration = dtpDateExpiration.Value;
+            int sale = (int)this.numAmount.Value;
+
+            ProductBUS productBUS = new ProductBUS();
+
+            if (queryObj == "add")
+            {
+
+                if (productName == "")
+                {
+                    MessageBox.Show("Nhap Ten!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (unit == "")
+                {
+                    MessageBox.Show("Nhập đơn vi!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                int checkdate = DateTime.Compare(dateExpiration, dateManufacture);
+                
+                if (checkdate <= 0)
+                {
+                    MessageBox.Show("Ngày hạn sử dụng sau ngày ngày sản xuất!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Product objProduct = new Product(productName, supplier, productType, price, unit, amount, dateAdd, dateManufacture, dateExpiration, sale);
+
+                productBUS.Insert(objProduct);
+                LoadProduct();
+                MessageBox.Show("Thêm thành công");
+            }
+            else if (queryObj == "edit")
+            {
+                if (productName == "")
+                {
+                    MessageBox.Show("Nhap Ten!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (unit == "")
+                {
+                    MessageBox.Show("Nhập đơn vi!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Product objProduct = new Product(Int32.Parse(productID), productName, supplier, productType, price, unit, amount, dateAdd, dateManufacture, dateExpiration, sale);
+
+                productBUS.Update(objProduct);
+                LoadProduct();
+                MessageBox.Show("Sửa thành công");
+            }
+            else if (queryObj == "delete")
+            {
+                DialogResult dialogResult = MessageBox.Show("Xóa", "Bạn muốn xóa?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    productBUS.Delete(Int32.Parse(productID));
+                    LoadProduct();
+                    MessageBox.Show("Xóa thành công");
+                }
+            }
+            else
+            {
+                if (txtSearchProduct.Text == "")
+                {
+                    MessageBox.Show("Nhap Ten hoac ma!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                dgvProduct.DataSource = productBUS.FindItems(txtSearchProduct.Text);
+
+            }
+
         }
 
         private void ExcuteProductType()
@@ -393,13 +488,37 @@ namespace ConvenientStore_Pro
 
             txtProductID.Text = dgvProduct["ProductID", rowindex].Value.ToString();
             txtProductName.Text = dgvProduct["ProductName", rowindex].Value.ToString();
-            cbbProductType.Text = dgvProduct["SupplierID", rowindex].Value.ToString();
-            cbbSupplier.Text = dgvProduct["ProductTypeID", rowindex].Value.ToString();
-            numPrice.Value = dgvProduct["Price", rowindex].Value;
-            txtUnit.Text = dgvProduct["Unit", rowindex].Value.ToString();
-            numAmount.Value = dgvProduct["Amount", rowindex].Value;
-            dtpDateManufacture.Value = dgvProduct["DateManufacture", rowindex].Value.ToString();
-            dtpDateExpiration.Value = dgvProduct["DateExpiration", rowindex].Value.ToString();
+            cbbProductType.DisplayMember = "ProductTypeName";
+            cbbProductType.ValueMember = "ProductTypeID";
+            cbbProductType.SelectedValue = (int)dgvProduct["ProductTypeID", rowindex].Value;
+
+            cbbSupplier.DisplayMember = "SupplierName";
+            cbbSupplier.ValueMember = "SupplierID";
+            cbbSupplier.SelectedValue = (int)dgvProduct["ProductSupplierID", rowindex].Value;
+            
+            numPrice.Value = Convert.ToInt32(dgvProduct["Price", rowindex].Value);
+            txtUnit.Text = dgvProduct["unit", rowindex].Value.ToString();
+            numAmount.Value = (int)dgvProduct["amount", rowindex].Value;
+            
+
+            if (dgvProduct["dateManufacture", rowindex].Value.ToString() != "")
+            {
+                dtpDateManufacture.Value = Convert.ToDateTime(dgvProduct["dateManufacture", rowindex].Value);
+            }
+            else
+            {
+                dtpDateManufacture.Value = System.DateTime.Now;
+            }
+
+            if (dgvProduct["dateExpiration", rowindex].Value.ToString() != "")
+            {
+                dtpDateExpiration.Value = Convert.ToDateTime(dgvProduct["dateExpiration", rowindex].Value);
+            }
+            else
+            {
+                dtpDateExpiration.Value = System.DateTime.Now;
+            }
+            
         }
 
         private void dgvSupplier_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -415,6 +534,11 @@ namespace ConvenientStore_Pro
         private void dgvProductType_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void btXemProduct_Click(object sender, EventArgs e)
+        {
+            LoadProduct();
         }
 
         private void btXemProductType_Click(object sender, EventArgs e)
@@ -438,6 +562,11 @@ namespace ConvenientStore_Pro
             SupplierBUS ptb = new SupplierBUS();
             cb.DataSource = ptb.GetListSupplier();
             cb.DisplayMember = "SupplierName";
+        }
+
+        private void frm_Product_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

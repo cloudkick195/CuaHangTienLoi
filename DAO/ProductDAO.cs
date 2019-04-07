@@ -70,8 +70,8 @@ namespace DAO
             try
             {
                 int result = 0;
-                string sql = "insert into Products(ProductName, SupplierID, ProductTypeID, Price, Unit, Amount, DateAdd, DateManufacture, DateExpiration, sale) " +
-                    "values(N'" + objProduct.ProductName + "','" + objProduct.SupplierID + "','" + objProduct.ProductTypeID + "','" + objProduct.Price + "','" + objProduct.Unit + "','" + objProduct.Amount + "','" + objProduct.DateAdd + "','" + objProduct.DateManufacture + "','" + objProduct.DateExpiration + "','" + objProduct.Sale + "')";
+                string sql = "insert into Products(ProductName, SupplierID, ProductTypeID, Price, Unit, Amount, DateAdd, DateManufacture, DateExpiration, Sale) " +
+                    "values(N'" + objProduct.ProductName + "','" + objProduct.SupplierID + "','" + objProduct.ProductTypeID + "','" + objProduct.Price + "',N'" + objProduct.Unit + "','" + objProduct.Amount + "','" + objProduct.DateAdd + "','" + objProduct.DateManufacture + "','" + objProduct.DateExpiration + "','" + objProduct.Sale + "')";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -86,7 +86,7 @@ namespace DAO
             try
             {
                 int result = 0;
-                string sql = "update Products set ProductName = N'" + objProduct.ProductName + "', Describe = N'" + objProduct.describe + "' WHERE ProductID = '" + objProduct.ProductID + "'";
+                string sql = "update Products set ProductName = N'" + objProduct.ProductName + "', SupplierID = '" + objProduct.SupplierID + "', ProductTypeID = '" + objProduct.ProductTypeID + "', Price = '" + objProduct.Price + "', Unit = N'" + objProduct.Unit + "', Amount = '" + objProduct.Amount + "', DateAdd = '" + objProduct.DateAdd + "', DateManufacture = '" + objProduct.DateManufacture + "', DateExpiration = '" + objProduct.DateExpiration + "', Sale = '" + objProduct.Sale + "' WHERE ProductID = '" + objProduct.ProductID + "'";
                 result = myExcuteNonQuery(sql);
                 return result;
             }
@@ -95,24 +95,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public bool checkName(string typeName)
-        {
-            try
-            {
-                string sql = "SELECT ProductName FROM Products WHERE ProductName = '" + typeName + "'";
-                DataTable dt = new DataTable();
-                dt = GetData(sql);
-                if (dt.Rows.Count > 0)
-                {
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+
         public int Delete(int ProductID)
         {
             try

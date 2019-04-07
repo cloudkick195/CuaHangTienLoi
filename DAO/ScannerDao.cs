@@ -11,9 +11,9 @@ namespace DAO
 {
     public class ScannerDAO : DataProvider
     {
-        public bool GetBarcode(String barcode)
+        public bool GetBarcode(String id)
         {
-            string sql = "SELECT COUNT (*) FROM Product WHERE Barcode= '" + barcode + "'";
+            string sql = "SELECT COUNT (*) FROM Products WHERE ProductID= '" + id + "'";
             int number;
             try
             {
@@ -30,36 +30,29 @@ namespace DAO
             else
                 return false;
         }
-        public Product GetProducts(string barcode)
+        public List<Product> GetListProduct(string item)
         {
-            string sql = "SELECT * FROM Product WHERE Barcode = '" + barcode + "'";
-            string proN = "";
-            float sellingP = 0;
-            string netW = "";
-            Product pro;
-            try
-            {
-                Connect();
-                SqlDataReader dr = myExcuteReader(sql);
-                while (dr.Read())
-                {
-                    proN = dr[1].ToString();
-                    sellingP = float.Parse(dr[5].ToString());
-                    netW = dr[7].ToString();
-                }
-                pro = new Product(proN, netW, sellingP);
-                dr.Close();
-                return pro;
-            }
-            catch (SqlException ex)
+            List<Product> list = new List<Product>();
+            string sql = "select * from Products WHERE ProductID = '" + item + "' or ProductName = N'" + item + "";
+            SqlDataReader dr = myExcuteReader(sql);
+            while (dr.Read())
             {
 
-                throw ex;
+                list.Add(new Product(Convert.ToInt32(dr["ProductID"]),
+                                                dr["ProductName"].ToString(),
+                                                Convert.ToInt32(dr["SupplierID"]),
+                                                Convert.ToInt32(dr["ProductTypeID"]),
+                                                Convert.ToInt32(dr["Price"]),
+                                                dr["Unit"].ToString(),
+                                                Convert.ToInt32(dr["Amount"]),
+                                                DateTime.Parse(dr["DateAdd"].ToString()),
+                                                DateTime.Parse(dr["DateManufacture"].ToString()),
+                                                DateTime.Parse(dr["DateExpiration"].ToString()),
+                                                Convert.ToInt32(dr["sale"])
+                                                ));
             }
-            finally
-            {
-                DisConnect();
-            }
+
+            return list;
         }
     }
 }

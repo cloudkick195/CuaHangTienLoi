@@ -35,7 +35,7 @@ namespace DTO
             this.DateExpiration = DateExpiration;
             this.Sale = Sale;
         }
-        public Product(int SupplierID, int ProductTypeID, int Price, string Unit, int Amount, DateTime DateAdd, DateTime DateManufacture, DateTime DateExpiration, int sale)
+        public Product(string ProductName, int SupplierID, int ProductTypeID, int Price, string Unit, int Amount, DateTime DateAdd, DateTime DateManufacture, DateTime DateExpiration, int sale)
         {
             this.ProductName = ProductName;
             this.SupplierID = SupplierID;

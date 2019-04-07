@@ -32,6 +32,16 @@
             this.btEditProduct = new System.Windows.Forms.Button();
             this.btDeleteProduct = new System.Windows.Forms.Button();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductSupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateExpiration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btViewProduct = new System.Windows.Forms.Button();
@@ -44,6 +54,7 @@
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
             this.numAmount = new System.Windows.Forms.NumericUpDown();
             this.dtpDateExpiration = new System.Windows.Forms.DateTimePicker();
             this.dtpDateManufacture = new System.Windows.Forms.DateTimePicker();
@@ -109,20 +120,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btAllSupplier = new System.Windows.Forms.Button();
             this.btSearchSupplier = new System.Windows.Forms.Button();
-            this.numPrice = new System.Windows.Forms.NumericUpDown();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductSupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAdd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateManufacture = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateExpiration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -134,7 +135,6 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -164,6 +164,7 @@
             this.btEditProduct.TabIndex = 3;
             this.btEditProduct.Text = "Sửa";
             this.btEditProduct.UseVisualStyleBackColor = true;
+            this.btEditProduct.Click += new System.EventHandler(this.btEditProduct_Click);
             // 
             // btDeleteProduct
             // 
@@ -174,6 +175,7 @@
             this.btDeleteProduct.TabIndex = 3;
             this.btDeleteProduct.Text = "Xóa";
             this.btDeleteProduct.UseVisualStyleBackColor = true;
+            this.btDeleteProduct.Click += new System.EventHandler(this.btDeleteProduct_Click);
             // 
             // dgvProduct
             // 
@@ -194,6 +196,69 @@
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.Size = new System.Drawing.Size(678, 324);
             this.dgvProduct.TabIndex = 7;
+            this.dgvProduct.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_RowEnter);
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "Mã sản phẩm";
+            this.ProductID.Name = "ProductID";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Tên sản phẩm";
+            this.ProductName.Name = "ProductName";
+            // 
+            // ProductSupplierID
+            // 
+            this.ProductSupplierID.DataPropertyName = "SupplierID";
+            this.ProductSupplierID.HeaderText = "Nhà cung cấp";
+            this.ProductSupplierID.Name = "ProductSupplierID";
+            // 
+            // ProductTypeID
+            // 
+            this.ProductTypeID.DataPropertyName = "ProductTypeID";
+            this.ProductTypeID.HeaderText = "Loại sản phẩm";
+            this.ProductTypeID.Name = "ProductTypeID";
+            this.ProductTypeID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ProductTypeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.Name = "Price";
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "Unit";
+            this.Unit.HeaderText = "Đơn vị";
+            this.Unit.Name = "Unit";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Số lượng";
+            this.Amount.Name = "Amount";
+            // 
+            // DateAdd
+            // 
+            this.DateAdd.DataPropertyName = "DateAdd";
+            this.DateAdd.HeaderText = "Ngày tạo";
+            this.DateAdd.Name = "DateAdd";
+            // 
+            // DateManufacture
+            // 
+            this.DateManufacture.DataPropertyName = "DateManufacture";
+            this.DateManufacture.HeaderText = "Ngày sản xuất";
+            this.DateManufacture.Name = "DateManufacture";
+            // 
+            // DateExpiration
+            // 
+            this.DateExpiration.DataPropertyName = "DateExpiration";
+            this.DateExpiration.HeaderText = "Ngày hết hạn";
+            this.DateExpiration.Name = "DateExpiration";
             // 
             // txtSearchProduct
             // 
@@ -222,8 +287,9 @@
             this.btViewProduct.Name = "btViewProduct";
             this.btViewProduct.Size = new System.Drawing.Size(128, 41);
             this.btViewProduct.TabIndex = 6;
-            this.btViewProduct.Text = "Tìm kiếm";
+            this.btViewProduct.Text = "Tất cả";
             this.btViewProduct.UseVisualStyleBackColor = true;
+            this.btViewProduct.Click += new System.EventHandler(this.btXemProduct_Click);
             // 
             // btSearchProduct
             // 
@@ -234,6 +300,7 @@
             this.btSearchProduct.TabIndex = 6;
             this.btSearchProduct.Text = "Tìm kiếm";
             this.btSearchProduct.UseVisualStyleBackColor = true;
+            this.btSearchProduct.Click += new System.EventHandler(this.btSaveProduct_Click);
             // 
             // label1
             // 
@@ -338,6 +405,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sản phẩm";
             // 
+            // numPrice
+            // 
+            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numPrice.Location = new System.Drawing.Point(153, 123);
+            this.numPrice.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(182, 34);
+            this.numPrice.TabIndex = 5;
+            this.numPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // numAmount
             // 
             this.numAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -384,6 +465,7 @@
             this.btSaveProduct.Text = "Lưu";
             this.btSaveProduct.UseVisualStyleBackColor = true;
             this.btSaveProduct.Visible = false;
+            this.btSaveProduct.Click += new System.EventHandler(this.btSaveProduct_Click);
             // 
             // btCancelProduct
             // 
@@ -395,6 +477,7 @@
             this.btCancelProduct.Text = "Hủy";
             this.btCancelProduct.UseVisualStyleBackColor = true;
             this.btCancelProduct.Visible = false;
+            this.btCancelProduct.Click += new System.EventHandler(this.btCancelProduct_Click);
             // 
             // btAddProduct
             // 
@@ -405,6 +488,7 @@
             this.btAddProduct.TabIndex = 3;
             this.btAddProduct.Text = "Thêm";
             this.btAddProduct.UseVisualStyleBackColor = true;
+            this.btAddProduct.Click += new System.EventHandler(this.btAddProduct_Click);
             // 
             // cbbSupplier
             // 
@@ -1045,82 +1129,6 @@
             this.btSearchSupplier.UseVisualStyleBackColor = true;
             this.btSearchSupplier.Click += new System.EventHandler(this.btSearchSupplier_Click);
             // 
-            // numPrice
-            // 
-            this.numPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numPrice.Location = new System.Drawing.Point(153, 123);
-            this.numPrice.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numPrice.Name = "numPrice";
-            this.numPrice.Size = new System.Drawing.Size(182, 34);
-            this.numPrice.TabIndex = 5;
-            this.numPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            this.ProductID.HeaderText = "Mã sản phẩm";
-            this.ProductID.Name = "ProductID";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Tên sản phẩm";
-            this.ProductName.Name = "ProductName";
-            // 
-            // ProductSupplierID
-            // 
-            this.ProductSupplierID.DataPropertyName = "SupplierID";
-            this.ProductSupplierID.HeaderText = "Nhà cung cấp";
-            this.ProductSupplierID.Name = "ProductSupplierID";
-            // 
-            // ProductTypeID
-            // 
-            this.ProductTypeID.DataPropertyName = "ProductTypeID";
-            this.ProductTypeID.HeaderText = "Loại sản phẩm";
-            this.ProductTypeID.Name = "ProductTypeID";
-            this.ProductTypeID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ProductTypeID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Đơn giá";
-            this.Price.Name = "Price";
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "Unit";
-            this.Unit.HeaderText = "Đơn vị";
-            this.Unit.Name = "Unit";
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Số lượng";
-            this.Amount.Name = "Amount";
-            // 
-            // DateAdd
-            // 
-            this.DateAdd.DataPropertyName = "DateAdd";
-            this.DateAdd.HeaderText = "Ngày tạo";
-            this.DateAdd.Name = "DateAdd";
-            // 
-            // DateManufacture
-            // 
-            this.DateManufacture.DataPropertyName = "DateManufacture";
-            this.DateManufacture.HeaderText = "Ngày sản xuất";
-            this.DateManufacture.Name = "DateManufacture";
-            // 
-            // DateExpiration
-            // 
-            this.DateExpiration.DataPropertyName = "DateExpiration";
-            this.DateExpiration.HeaderText = "Ngày hết hạn";
-            this.DateExpiration.Name = "DateExpiration";
-            // 
             // frm_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1130,11 +1138,13 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_Product";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.frm_Product_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1150,7 +1160,6 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -22,11 +22,11 @@ namespace BUS
                 throw ex;
             }
         }
-        public Product GetProducts(String barcode)
+        public List<Product> GetListProduct(string item)
         {
             try
             {
-                return new ScannerDAO().GetProducts(barcode);
+                return new ScannerDAO().GetListProduct(item);
             }
             catch (SqlException ex)
             {

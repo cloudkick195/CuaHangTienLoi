@@ -220,17 +220,8 @@ namespace ConvenientStore_Pro
                 Test = Scanner.GetBarcode(barcode);
                 if (Test == true)
                 {
-                    Barcode_textBox.Text = null;
-                    pictureBox1.Visible = false;
-                    treeNode = new TreeNode("--   " + Scanner.GetProducts(barcode).proName + "                         " +
-                        "                " + Scanner.GetProducts(barcode).netW + "                   " + Scanner.GetProducts(barcode).sellingP.ToString("###,###"));
-                    treeNode.Expand();
-                    TreeNode childNode = new TreeNode("       " + barcode + "    @1");
-                    childNode.Expand();
-                    treeNode.Nodes.Add(childNode);
-                    this.treeView1.Nodes.Add(treeNode);
-                    Tendered += /*double.Parse((*/Scanner.GetProducts(barcode).sellingP;//).ToString());
-                    lbTendered.Text = "Tendered: " + Tendered.ToString("###,###");
+
+
                 }
                 else //if(Test==false || Barcode_textBox.Text=="")
                 {

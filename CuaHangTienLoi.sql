@@ -11,5 +11,5 @@ ADD CONSTRAINT CN_DateManufactureExpiration CHECK (
      );
 
 ALTER TABLE Products
-ADD sale money DEFAULT 0
+ADD Sale money DEFAULT 0
 	GO

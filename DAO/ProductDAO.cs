@@ -36,7 +36,16 @@ namespace DAO
 
                 list.Add(new Product(Convert.ToInt32(dr["ProductID"]),
                                                 dr["ProductName"].ToString(),
-                                                ""));
+                                                Convert.ToInt32(dr["SupplierID"]),
+                                                Convert.ToInt32(dr["ProductTypeID"]),
+                                                Convert.ToInt32(dr["Price"]),
+                                                dr["Unit"].ToString(),
+                                                Convert.ToInt32(dr["Amount"]),
+                                                DateTime.Parse(dr["DateAdd"].ToString()),
+                                                DateTime.Parse(dr["DateManufacture"].ToString()),
+                                                DateTime.Parse(dr["DateExpiration"].ToString()),
+                                                Convert.ToInt32(dr["sale"])
+                                                ));
             }
 
             return list;
@@ -61,7 +70,8 @@ namespace DAO
             try
             {
                 int result = 0;
-                string sql = "insert into Products(ProductName, Describe) values(N'" + objProduct.ProductName + "',N'" + objProduct.describe + "')";
+                string sql = "insert into Products(ProductName, SupplierID, ProductTypeID, Price, Unit, Amount, DateAdd, DateManufacture, DateExpiration, sale) " +
+                    "values(N'" + objProduct.ProductName + "','" + objProduct.SupplierID + "','" + objProduct.ProductTypeID + "','" + objProduct.Price + "','" + objProduct.Unit + "','" + objProduct.Amount + "','" + objProduct.DateAdd + "','" + objProduct.DateManufacture + "','" + objProduct.DateExpiration + "','" + objProduct.Sale + "')";
                 result = myExcuteNonQuery(sql);
                 return result;
             }

@@ -31,6 +31,7 @@ namespace ConvenientStore_Pro
         double Tendered = 0;
         double Cash = 0;
         double Cre = 0;
+        int stepLogin = 0;
         public string EmployeeName { get; set; }
         public frm_Main()
         {
@@ -82,9 +83,11 @@ namespace ConvenientStore_Pro
                 SignOn.lb_Employee.Text = "#Nhân viên: " + EmployeeName;
                 if (Test == true)
                 {
+
                     Barcode_textBox.Text = null;
                     lb_Note.Text = "Plese input password";
                     Barcode_textBox.PasswordChar = '*';
+                    stepLogin = 2;
                 }
                 else
                 {
@@ -113,6 +116,7 @@ namespace ConvenientStore_Pro
                     {
                         this.Enabled = true;
                         sC_Tool2.Panel2.Controls.Add(UC_Tool.Instance);
+                        sC_Tool2.Panel2.Controls.Remove(UC_SignOn.Instance);
                         UC_Tool.Instance.Dock = DockStyle.Fill;
                         lb_Note.Text = "Please scan barcode or input from keyboard";
                         Barcode_textBox.PasswordChar = '\0';
@@ -274,10 +278,22 @@ namespace ConvenientStore_Pro
 
         private void Btn_SignOn_Click(object sender, EventArgs e)
         {
-            Barcode_textBox.Text = null;
+
             Barcode_textBox.Focus();
-            sC_Tool2.Panel2.Controls.Remove(UC_SignOn.Instance);
             lb_Note.Text = "What your ID number?";
+            if (stepLogin == 0)
+            {
+                stepLogin = 1;
+                UC_SignOn.Instance.btn_SignOn.Text = "Tiếp tục";
+            }
+            else if(stepLogin == 1)
+            {
+                Enter_btn_ID();
+            }
+            else
+            {
+                Enter_btn_Pass();
+            }
         }
         private void frm_Main_Load(object sender, EventArgs e)
         {
@@ -288,10 +304,7 @@ namespace ConvenientStore_Pro
 
         private void Barcode_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            
         }
 
         private void Barcode_textBox_TextChanged(object sender, EventArgs e)

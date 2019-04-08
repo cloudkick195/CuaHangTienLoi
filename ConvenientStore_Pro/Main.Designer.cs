@@ -54,13 +54,13 @@
             this.sC_Display = new System.Windows.Forms.SplitContainer();
             this.sC_Text = new System.Windows.Forms.SplitContainer();
             this.lb_Note = new System.Windows.Forms.Label();
-            this.Barcode_textBox = new System.Windows.Forms.TextBox();
             this.sC_Detail = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lbTendered = new System.Windows.Forms.Label();
             this.sC_Main = new System.Windows.Forms.SplitContainer();
+            this.Barcode_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Tool)).BeginInit();
             this.sC_Tool.Panel1.SuspendLayout();
             this.sC_Tool.Panel2.SuspendLayout();
@@ -461,19 +461,6 @@
             this.lb_Note.Size = new System.Drawing.Size(0, 31);
             this.lb_Note.TabIndex = 7;
             // 
-            // Barcode_textBox
-            // 
-            this.Barcode_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Barcode_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Barcode_textBox.Location = new System.Drawing.Point(0, 0);
-            this.Barcode_textBox.Margin = new System.Windows.Forms.Padding(4);
-            this.Barcode_textBox.Multiline = true;
-            this.Barcode_textBox.Name = "Barcode_textBox";
-            this.Barcode_textBox.Size = new System.Drawing.Size(654, 43);
-            this.Barcode_textBox.TabIndex = 6;
-            this.Barcode_textBox.TextChanged += new System.EventHandler(this.Barcode_textBox_TextChanged);
-            this.Barcode_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Barcode_textBox_KeyPress);
-            // 
             // sC_Detail
             // 
             this.sC_Detail.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -563,6 +550,18 @@
             this.sC_Main.SplitterWidth = 5;
             this.sC_Main.TabIndex = 0;
             // 
+            // Barcode_textBox
+            // 
+            this.Barcode_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Barcode_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Barcode_textBox.Location = new System.Drawing.Point(0, 0);
+            this.Barcode_textBox.Margin = new System.Windows.Forms.Padding(4);
+            this.Barcode_textBox.Name = "Barcode_textBox";
+            this.Barcode_textBox.Size = new System.Drawing.Size(654, 75);
+            this.Barcode_textBox.TabIndex = 6;
+            this.Barcode_textBox.TextChanged += new System.EventHandler(this.Barcode_textBox_TextChanged);
+            this.Barcode_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Barcode_textBox_KeyPress);
+            // 
             // frm_Main
             // 
             this.AcceptButton = this.Enter_btn;
@@ -636,7 +635,6 @@
         public System.Windows.Forms.Button Enter_btn;
         public System.Windows.Forms.Button Clear_btn;
         public System.Windows.Forms.Button Bksp_btn;
-        public System.Windows.Forms.TextBox Barcode_textBox;
         public System.Windows.Forms.Label lb_Note;
         public System.Windows.Forms.Timer timer1;
         public System.Windows.Forms.SplitContainer sC_Tool;
@@ -649,6 +647,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TreeView treeView1;
         public System.Windows.Forms.Label lbTendered;
+        public System.Windows.Forms.TextBox Barcode_textBox;
     }
 }
 

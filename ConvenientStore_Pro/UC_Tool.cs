@@ -31,5 +31,15 @@ namespace ConvenientStore_Pro
         {
 
         }
+
+        private void btProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

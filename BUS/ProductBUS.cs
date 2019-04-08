@@ -20,6 +20,11 @@ namespace BUS
         {
             return new ProductDAO().GetListProduct();
         }
+
+        public List<Product> GetListProductByValue(string item)
+        {
+            return new ProductDAO().GetListProductByValue(item);
+        }
         public DataTable FindItems(string item)
         {
             try

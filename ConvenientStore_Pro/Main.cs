@@ -18,7 +18,9 @@ namespace ConvenientStore_Pro
         frm_SignOn SignOn;
         frm_SignOff signOff;
         frm_Customer frm_Customer;
+        frm_Product frm_Product;
         frm_Sum Sum;
+        frm_Product pro;
         ScannerBUS Scanner;
         SignOnBUS SignBus;
         Tender_CusBUS Tender_CusBUS;
@@ -32,6 +34,7 @@ namespace ConvenientStore_Pro
         double Cash = 0;
         double Cre = 0;
         int stepLogin = 0;
+        int supperTotal = 0;
         public string EmployeeName { get; set; }
         public frm_Main()
         {
@@ -41,11 +44,13 @@ namespace ConvenientStore_Pro
             SignOn = new frm_SignOn();
             signOff = new frm_SignOff();
             frm_Customer = new frm_Customer();
+            frm_Product = new frm_Product();
             Sum = new frm_Sum();
             Tender_CusBUS = new Tender_CusBUS();
             UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
             UC_Tool.Instance.btn_Off.Click += Btn_Off_Click;
             UC_Tool.Instance.btCustomer.Click += Btn_Cus_Click;
+            UC_Tool.Instance.btProduct.Click += btProduct_Click;
         }
         private void Btn_Can_Click(object sender, EventArgs e)
         {
@@ -121,6 +126,7 @@ namespace ConvenientStore_Pro
                         lb_Note.Text = "Please scan barcode or input from keyboard";
                         Barcode_textBox.PasswordChar = '\0';
                         Funds = SignOn.Funds;
+                        btSearchProduct.Visible = true;
                     }
                     else if (SignOn.DialogResult == DialogResult.Cancel)
                     {
@@ -153,7 +159,6 @@ namespace ConvenientStore_Pro
                 Test = Scanner.GetBarcode(barcode);
                 if (Test == true)
                 {
-
 
                 }
                 else //if(Test==false || Barcode_textBox.Text=="")
@@ -266,7 +271,7 @@ namespace ConvenientStore_Pro
                 Sum.ShowDialog();
             }
         }
-        
+
         private void Btn_Cus_Click(object sender, EventArgs e)
         {
             frm_Customer.ShowDialog();
@@ -275,7 +280,14 @@ namespace ConvenientStore_Pro
                 Sum.ShowDialog();
             }
         }
-
+        private void btProduct_Click(object sender, EventArgs e)
+        {
+            frm_Product.ShowDialog();
+            if (frm_Product.DialogResult == DialogResult.OK)
+            {
+                frm_Product.ShowDialog();
+            }
+        }
         private void Btn_SignOn_Click(object sender, EventArgs e)
         {
 
@@ -304,10 +316,52 @@ namespace ConvenientStore_Pro
 
         private void Barcode_textBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
         }
 
         private void Barcode_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Barcode_textBox_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btSearchProduct_Click(object sender, EventArgs e)
+        {
+            grProducts.Visible = true;
+            ProductBUS products = new ProductBUS();
+            cbbProducts.DataSource = products.GetListProductByValue(Barcode_textBox.Text);
+            cbbProducts.DisplayMember = "ProductName";
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ListViewItem item = new ListViewItem();
+            
+            string productId = (cbbProducts.SelectedItem as Product).ProductID.ToString();
+            string productName = (cbbProducts.SelectedItem as Product).ProductName;
+            int amount = (int)numSoLuong.Value;
+            int price = (cbbProducts.SelectedItem as Product).Price;
+            int subTotal = amount * price;
+            string subTotalConvert = subTotal.ToString();
+            supperTotal += subTotal;
+            item.SubItems.Add(productId);
+            item.SubItems.Add(productName);
+            item.SubItems.Add(amount.ToString());
+            item.SubItems.Add(price.ToString());
+            item.SubItems.Add(subTotalConvert);
+            lvOrder.Items.Add(item);
+
+            numSoLuong.Value = 1;
+            lbThanhTien.Text = supperTotal.ToString();
+            grProduct1.Visible = true;
+            grProduct2.Visible = true;
+        }
+
+        private void btThanhToan_Click(object sender, EventArgs e)
         {
 
         }

@@ -53,14 +53,31 @@
             this.Bksp_btn = new System.Windows.Forms.Button();
             this.sC_Display = new System.Windows.Forms.SplitContainer();
             this.sC_Text = new System.Windows.Forms.SplitContainer();
+            this.btSearchProduct = new System.Windows.Forms.Button();
             this.lb_Note = new System.Windows.Forms.Label();
+            this.Barcode_textBox = new System.Windows.Forms.TextBox();
             this.sC_Detail = new System.Windows.Forms.SplitContainer();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.lbTendered = new System.Windows.Forms.Label();
             this.sC_Main = new System.Windows.Forms.SplitContainer();
-            this.Barcode_textBox = new System.Windows.Forms.TextBox();
+            this.grProducts = new System.Windows.Forms.GroupBox();
+            this.cbbProducts = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lvOrder = new System.Windows.Forms.ListView();
+            this.productName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.soLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.donGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.thanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.productId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sanPhamId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.grProduct1 = new System.Windows.Forms.GroupBox();
+            this.grProduct2 = new System.Windows.Forms.GroupBox();
+            this.btThanhToan = new System.Windows.Forms.Button();
+            this.lbThanhTien = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Tool)).BeginInit();
             this.sC_Tool.Panel1.SuspendLayout();
             this.sC_Tool.Panel2.SuspendLayout();
@@ -88,6 +105,10 @@
             this.sC_Main.Panel1.SuspendLayout();
             this.sC_Main.Panel2.SuspendLayout();
             this.sC_Main.SuspendLayout();
+            this.grProducts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
+            this.grProduct1.SuspendLayout();
+            this.grProduct2.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -440,6 +461,7 @@
             // 
             // sC_Text.Panel1
             // 
+            this.sC_Text.Panel1.Controls.Add(this.btSearchProduct);
             this.sC_Text.Panel1.Controls.Add(this.lb_Note);
             // 
             // sC_Text.Panel2
@@ -449,6 +471,18 @@
             this.sC_Text.SplitterDistance = 44;
             this.sC_Text.SplitterWidth = 5;
             this.sC_Text.TabIndex = 0;
+            // 
+            // btSearchProduct
+            // 
+            this.btSearchProduct.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btSearchProduct.Location = new System.Drawing.Point(512, 0);
+            this.btSearchProduct.Name = "btSearchProduct";
+            this.btSearchProduct.Size = new System.Drawing.Size(142, 44);
+            this.btSearchProduct.TabIndex = 8;
+            this.btSearchProduct.Text = "Tìm sản phẩm";
+            this.btSearchProduct.UseVisualStyleBackColor = true;
+            this.btSearchProduct.Visible = false;
+            this.btSearchProduct.Click += new System.EventHandler(this.btSearchProduct_Click);
             // 
             // lb_Note
             // 
@@ -460,6 +494,19 @@
             this.lb_Note.Name = "lb_Note";
             this.lb_Note.Size = new System.Drawing.Size(0, 31);
             this.lb_Note.TabIndex = 7;
+            // 
+            // Barcode_textBox
+            // 
+            this.Barcode_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Barcode_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Barcode_textBox.Location = new System.Drawing.Point(0, 0);
+            this.Barcode_textBox.Margin = new System.Windows.Forms.Padding(4);
+            this.Barcode_textBox.Name = "Barcode_textBox";
+            this.Barcode_textBox.Size = new System.Drawing.Size(654, 75);
+            this.Barcode_textBox.TabIndex = 6;
+            this.Barcode_textBox.TextChanged += new System.EventHandler(this.Barcode_textBox_TextChanged);
+            this.Barcode_textBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Barcode_textBox_KeyDown);
+            this.Barcode_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Barcode_textBox_KeyPress);
             // 
             // sC_Detail
             // 
@@ -474,6 +521,8 @@
             this.sC_Detail.Panel1.AutoScroll = true;
             this.sC_Detail.Panel1.BackColor = System.Drawing.Color.Transparent;
             this.sC_Detail.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.sC_Detail.Panel1.Controls.Add(this.grProduct1);
+            this.sC_Detail.Panel1.Controls.Add(this.grProducts);
             this.sC_Detail.Panel1.Controls.Add(this.pictureBox1);
             this.sC_Detail.Panel1.Controls.Add(this.treeView1);
             this.sC_Detail.Panel1.Controls.Add(this.splitter1);
@@ -550,17 +599,147 @@
             this.sC_Main.SplitterWidth = 5;
             this.sC_Main.TabIndex = 0;
             // 
-            // Barcode_textBox
+            // grProducts
             // 
-            this.Barcode_textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Barcode_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Barcode_textBox.Location = new System.Drawing.Point(0, 0);
-            this.Barcode_textBox.Margin = new System.Windows.Forms.Padding(4);
-            this.Barcode_textBox.Name = "Barcode_textBox";
-            this.Barcode_textBox.Size = new System.Drawing.Size(654, 75);
-            this.Barcode_textBox.TabIndex = 6;
-            this.Barcode_textBox.TextChanged += new System.EventHandler(this.Barcode_textBox_TextChanged);
-            this.Barcode_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Barcode_textBox_KeyPress);
+            this.grProducts.Controls.Add(this.button1);
+            this.grProducts.Controls.Add(this.numSoLuong);
+            this.grProducts.Controls.Add(this.label1);
+            this.grProducts.Controls.Add(this.cbbProducts);
+            this.grProducts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grProducts.Location = new System.Drawing.Point(4, 0);
+            this.grProducts.Name = "grProducts";
+            this.grProducts.Size = new System.Drawing.Size(650, 89);
+            this.grProducts.TabIndex = 9;
+            this.grProducts.TabStop = false;
+            this.grProducts.Text = "Danh sách sản phẩm";
+            this.grProducts.Visible = false;
+            // 
+            // cbbProducts
+            // 
+            this.cbbProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbProducts.FormattingEnabled = true;
+            this.cbbProducts.Location = new System.Drawing.Point(151, 21);
+            this.cbbProducts.Name = "cbbProducts";
+            this.cbbProducts.Size = new System.Drawing.Size(223, 33);
+            this.cbbProducts.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Chọn sản phẩm";
+            // 
+            // numSoLuong
+            // 
+            this.numSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numSoLuong.Location = new System.Drawing.Point(380, 24);
+            this.numSoLuong.Name = "numSoLuong";
+            this.numSoLuong.Size = new System.Drawing.Size(106, 30);
+            this.numSoLuong.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(492, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 41);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Thêm vào order";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lvOrder
+            // 
+            this.lvOrder.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.productId,
+            this.sanPhamId,
+            this.productName,
+            this.soLuong,
+            this.donGia,
+            this.thanhTien});
+            this.lvOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvOrder.Location = new System.Drawing.Point(3, 18);
+            this.lvOrder.Name = "lvOrder";
+            this.lvOrder.Size = new System.Drawing.Size(641, 212);
+            this.lvOrder.TabIndex = 14;
+            this.lvOrder.UseCompatibleStateImageBehavior = false;
+            this.lvOrder.View = System.Windows.Forms.View.Details;
+            // 
+            // productName
+            // 
+            this.productName.Text = "Sản phẩm";
+            this.productName.Width = 200;
+            // 
+            // soLuong
+            // 
+            this.soLuong.Text = "Số lượng";
+            this.soLuong.Width = 70;
+            // 
+            // donGia
+            // 
+            this.donGia.Text = "Đơn giá";
+            this.donGia.Width = 200;
+            // 
+            // thanhTien
+            // 
+            this.thanhTien.Text = "Thành tiền";
+            this.thanhTien.Width = 250;
+            // 
+            // productId
+            // 
+            this.productId.Text = "Mã";
+            this.productId.Width = 0;
+            // 
+            // sanPhamId
+            // 
+            this.sanPhamId.Text = "Mã";
+            // 
+            // grProduct1
+            // 
+            this.grProduct1.Controls.Add(this.grProduct2);
+            this.grProduct1.Controls.Add(this.lvOrder);
+            this.grProduct1.Location = new System.Drawing.Point(4, 95);
+            this.grProduct1.Name = "grProduct1";
+            this.grProduct1.Size = new System.Drawing.Size(647, 233);
+            this.grProduct1.TabIndex = 10;
+            this.grProduct1.TabStop = false;
+            this.grProduct1.Text = "Danh sách sản phẩm được chọn";
+            this.grProduct1.Visible = false;
+            // 
+            // grProduct2
+            // 
+            this.grProduct2.Controls.Add(this.lbThanhTien);
+            this.grProduct2.Controls.Add(this.btThanhToan);
+            this.grProduct2.Location = new System.Drawing.Point(0, 164);
+            this.grProduct2.Name = "grProduct2";
+            this.grProduct2.Size = new System.Drawing.Size(640, 69);
+            this.grProduct2.TabIndex = 11;
+            this.grProduct2.TabStop = false;
+            this.grProduct2.Text = "Subtotal";
+            this.grProduct2.Visible = false;
+            // 
+            // btThanhToan
+            // 
+            this.btThanhToan.Location = new System.Drawing.Point(167, 16);
+            this.btThanhToan.Name = "btThanhToan";
+            this.btThanhToan.Size = new System.Drawing.Size(168, 47);
+            this.btThanhToan.TabIndex = 1;
+            this.btThanhToan.Text = "Thanh toán";
+            this.btThanhToan.UseVisualStyleBackColor = true;
+            this.btThanhToan.Click += new System.EventHandler(this.btThanhToan_Click);
+            // 
+            // lbThanhTien
+            // 
+            this.lbThanhTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbThanhTien.Location = new System.Drawing.Point(395, 18);
+            this.lbThanhTien.Name = "lbThanhTien";
+            this.lbThanhTien.Size = new System.Drawing.Size(211, 36);
+            this.lbThanhTien.TabIndex = 2;
+            this.lbThanhTien.Text = "label2";
+            this.lbThanhTien.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frm_Main
             // 
@@ -610,6 +789,11 @@
             this.sC_Main.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sC_Main)).EndInit();
             this.sC_Main.ResumeLayout(false);
+            this.grProducts.ResumeLayout(false);
+            this.grProducts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
+            this.grProduct1.ResumeLayout(false);
+            this.grProduct2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -648,6 +832,23 @@
         private System.Windows.Forms.TreeView treeView1;
         public System.Windows.Forms.Label lbTendered;
         public System.Windows.Forms.TextBox Barcode_textBox;
+        private System.Windows.Forms.Button btSearchProduct;
+        private System.Windows.Forms.GroupBox grProducts;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numSoLuong;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbbProducts;
+        private System.Windows.Forms.ListView lvOrder;
+        private System.Windows.Forms.ColumnHeader productName;
+        private System.Windows.Forms.ColumnHeader soLuong;
+        private System.Windows.Forms.ColumnHeader donGia;
+        private System.Windows.Forms.ColumnHeader thanhTien;
+        private System.Windows.Forms.ColumnHeader productId;
+        private System.Windows.Forms.ColumnHeader sanPhamId;
+        private System.Windows.Forms.GroupBox grProduct2;
+        private System.Windows.Forms.GroupBox grProduct1;
+        private System.Windows.Forms.Button btThanhToan;
+        private System.Windows.Forms.Label lbThanhTien;
     }
 }
 

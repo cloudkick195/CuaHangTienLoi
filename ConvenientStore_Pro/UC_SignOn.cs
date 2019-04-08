@@ -31,5 +31,10 @@ namespace ConvenientStore_Pro
         {
             Application.Exit();
         }
+
+        private void btn_SignOn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

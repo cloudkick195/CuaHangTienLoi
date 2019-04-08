@@ -16,7 +16,7 @@ namespace ConvenientStore_Pro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Product());
+            Application.Run(new frm_Main());
         }
     }
 }

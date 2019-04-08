@@ -43,83 +43,14 @@ namespace ConvenientStore_Pro
             Sum = new frm_Sum();
             Tender_CusBUS = new Tender_CusBUS();
             UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
-            UC_OK.Instance.btn_OK.Click += Btn_OK_Tool_Click;
             UC_Tool.Instance.btn_Off.Click += Btn_Off_Click;
-            UC_Tool.Instance.btn_Cus.Click += Btn_Cus_Click;
-            UC_Tool.Instance.btn_Tender.Click += Btn_Tender_Click;
-            UC_TenderCus.Instance.btn_Can.Click += Btn_Can_Click;
-            UC_TenderCus.Instance.btn_Skip.Click += Btn_Skip_Click;
-            UC_TenderMethod.Instance.btn_Can.Click += Btn_Can_Click1;
-            UC_TenderMethod.Instance.btn_Cre.Click += Btn_Cre_Click;
-            UC_TenderMethod.Instance.btn_Cash.Click += Btn_Cash_Click;
-        }
-
-        private void Btn_Cash_Click(object sender, EventArgs e)
-        {
-            Cash += Tendered;
-            lb_Note.Text = "Enter Customer's Cash";
-            Barcode_textBox.Focus();
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_Em.Instance);
-            UC_Em.Instance.Dock = DockStyle.Fill;
-        }
-
-        private void Btn_Cre_Click(object sender, EventArgs e)
-        {
-            Cre += Tendered;
-            Barcode_textBox.Text = null;
-            this.treeView1.Nodes.Clear();
-            treeNode = null;
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_OK.Instance);
-            UC_OK.Instance.Dock = DockStyle.Fill;
-            lb_Note.Text = "Done";
-            Tendered = 0;
-            lbTendered.Text = "Tender:   ";
-        }
-        private void Btn_Can_Click1(object sender, EventArgs e)
-        {
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_TenderCus.Instance);
-            UC_TenderMethod.Instance.Dock = DockStyle.Fill;
-            Barcode_textBox.Text = null;
-            lb_Note.Text = "Enter Customer Code or Click Skip";
-            Barcode_textBox.Focus();
-        }
-
-        private void Btn_Skip_Click(object sender, EventArgs e)
-        {
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderCus.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_TenderMethod.Instance);
-            UC_TenderMethod.Instance.Dock = DockStyle.Fill;
-            lb_Note.Text = "Please choose one tender-method";
-            Barcode_textBox.Text = Tendered.ToString("###,###");
-            Barcode_textBox.Focus();
+            UC_Tool.Instance.btCustomer.Click += Btn_Cus_Click;
         }
         private void Btn_Can_Click(object sender, EventArgs e)
         {
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderCus.Instance);
             sC_Tool2.Panel2.Controls.Add(UC_Tool.Instance); 
-            UC_TenderCus.Instance.Dock = DockStyle.Fill;
             lb_Note.Text = "Please scan barcode or input from keyboard";
             Barcode_textBox.Focus();
-        }
-
-        private void Btn_Tender_Click(object sender, EventArgs e)
-        {
-            if (treeNode==null || Barcode_textBox.Text !="")
-            {
-                sC_Tool2.Panel2.Controls.Remove(UC_Tool.Instance);
-                Unknow();
-            }
-            else //if(treeNode!=null)
-            {
-                lb_Note.Text = "Enter Customer Code or Click Skip";
-                Barcode_textBox.Focus();
-                sC_Tool2.Panel2.Controls.Remove(UC_Tool.Instance);
-                sC_Tool2.Panel2.Controls.Add(UC_TenderCus.Instance);
-                UC_TenderCus.Instance.Dock = DockStyle.Fill;
-            }
         }
 
         private void btn_1_Click(object sender, EventArgs e)
@@ -130,11 +61,11 @@ namespace ConvenientStore_Pro
 
         private void Enter_btn_Click(object sender, EventArgs e)
         {
-            if (lb_Note.Text == "Please scan barcode or input from keyboard")
+            if (lb_Note.Text == "Vui lòng nhập barcode")
                 Enter_btn_Tool();
-            else if (lb_Note.Text == "What your ID number?")
+            else if (lb_Note.Text == "Vui lòng nhập ID?")
                 Enter_btn_ID();
-            else if (lb_Note.Text == "Plese input password")
+            else if (lb_Note.Text == "Vui lòng nhập mật khẩu")
                 Enter_btn_Pass();
             else if (lb_Note.Text == "Enter Customer Code or Click Skip")
                 Enter_btn_TenderCus();
@@ -148,7 +79,7 @@ namespace ConvenientStore_Pro
             {
                 EmployeeName = SignBus.getNameID(barcode);
                 Test = SignBus.SignOn_ID(barcode);
-                SignOn.lb_Employee.Text = "#Employee: " + EmployeeName;
+                SignOn.lb_Employee.Text = "#Nhân viên: " + EmployeeName;
                 if (Test == true)
                 {
                     Barcode_textBox.Text = null;
@@ -181,7 +112,6 @@ namespace ConvenientStore_Pro
                     if (SignOn.DialogResult == DialogResult.OK)
                     {
                         this.Enabled = true;
-                        sC_Tool2.Panel2.Controls.Remove(UC_Em.Instance);
                         sC_Tool2.Panel2.Controls.Add(UC_Tool.Instance);
                         UC_Tool.Instance.Dock = DockStyle.Fill;
                         lb_Note.Text = "Please scan barcode or input from keyboard";
@@ -193,7 +123,6 @@ namespace ConvenientStore_Pro
                         //frm_Sign.Close();
                         this.Enabled = true;
                         lb_Note.Text = "Choose Sign ON button to enter the system or Exit button to exit";
-                        sC_Tool2.Panel2.Controls.Remove(UC_Em.Instance);
                         sC_Tool2.Panel2.Controls.Add(UC_SignOn.Instance);
                         UC_SignOn.Instance.Dock = DockStyle.Fill;
                         Barcode_textBox.PasswordChar = '\0';
@@ -240,8 +169,6 @@ namespace ConvenientStore_Pro
             Barcode_textBox.Text = null;
             lb_Note.Text = "Unknow Code\n" +
                 "Plese enter different one";
-            sC_Tool2.Panel2.Controls.Add(UC_OK.Instance);
-            UC_OK.Instance.Dock = DockStyle.Fill;
         }
         private void Enter_btn_TenderCus()
         {
@@ -258,23 +185,18 @@ namespace ConvenientStore_Pro
             {
                 lbTendered.TextAlign = ContentAlignment.TopRight;
                 lbTendered.Text = "Tendered: " +Tendered.ToString("###,###") + "\nKhách hàng: " + cusName + "\n MÃ KH: " + cusCode;
-                sC_Tool2.Panel2.Controls.Remove(UC_TenderCus.Instance);
-                sC_Tool2.Panel2.Controls.Add(UC_TenderMethod.Instance);
-                UC_TenderMethod.Instance.Dock = DockStyle.Fill;
                 lb_Note.Text = "Please choose one tender-method";
                 Barcode_textBox.Text = Tendered.ToString("###,###");
                 Barcode_textBox.Focus();
             }
             else
             {
-                sC_Tool2.Panel2.Controls.Remove(UC_TenderCus.Instance);
                 Unknow();
             }
         }
         private void Btn_OK_Tool_Click(object sender, EventArgs e)
         {
             Barcode_textBox.Text = "";
-            sC_Tool2.Panel2.Controls.Remove(UC_OK.Instance);
             sC_Tool2.Panel2.Controls.Add(UC_Tool.Instance);
             UC_Tool.Instance.Dock = DockStyle.Fill;
             lb_Note.Text = "Please scan barcode or input from keyboard";
@@ -299,9 +221,6 @@ namespace ConvenientStore_Pro
                     lb_Note.Text = "Change Due";
                     Barcode_textBox.Text = ChangeDue.ToString("###,###");
                 }
-                sC_Tool2.Panel2.Controls.Remove(UC_Em.Instance);
-                sC_Tool2.Panel2.Controls.Add(UC_OK.Instance);
-                UC_OK.Instance.Dock = DockStyle.Fill;
                 treeView1.Nodes.Clear();
                 treeNode = null;
                 Tendered = 0;
@@ -358,8 +277,6 @@ namespace ConvenientStore_Pro
             Barcode_textBox.Text = null;
             Barcode_textBox.Focus();
             sC_Tool2.Panel2.Controls.Remove(UC_SignOn.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_Em.Instance);
-            UC_Em.Instance.Dock = DockStyle.Fill;
             lb_Note.Text = "What your ID number?";
         }
         private void frm_Main_Load(object sender, EventArgs e)
@@ -375,6 +292,11 @@ namespace ConvenientStore_Pro
             {
                 e.Handled = true;
             }
+        }
+
+        private void Barcode_textBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

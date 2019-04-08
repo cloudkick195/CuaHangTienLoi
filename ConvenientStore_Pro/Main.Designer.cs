@@ -471,6 +471,7 @@
             this.Barcode_textBox.Name = "Barcode_textBox";
             this.Barcode_textBox.Size = new System.Drawing.Size(654, 43);
             this.Barcode_textBox.TabIndex = 6;
+            this.Barcode_textBox.TextChanged += new System.EventHandler(this.Barcode_textBox_TextChanged);
             this.Barcode_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Barcode_textBox_KeyPress);
             // 
             // sC_Detail

@@ -99,30 +99,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UC_TenderMethod.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_TenderMethod.Designer.cs">
-      <DependentUpon>UC_TenderMethod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_Em.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_Em.Designer.cs">
-      <DependentUpon>UC_Em.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_OK.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_OK.Designer.cs">
-      <DependentUpon>UC_OK.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UC_TenderCus.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC_TenderCus.Designer.cs">
-      <DependentUpon>UC_TenderCus.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC_Tool.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,18 +138,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_TenderMethod.resx">
-      <DependentUpon>UC_TenderMethod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_Em.resx">
-      <DependentUpon>UC_Em.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_OK.resx">
-      <DependentUpon>UC_OK.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UC_TenderCus.resx">
-      <DependentUpon>UC_TenderCus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_Tool.resx">
       <DependentUpon>UC_Tool.cs</DependentUpon>

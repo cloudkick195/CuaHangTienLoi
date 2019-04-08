@@ -31,12 +31,12 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_Reprint = new System.Windows.Forms.Button();
             this.btn_Off = new System.Windows.Forms.Button();
-            this.btn_Tender = new System.Windows.Forms.Button();
+            this.btProduct = new System.Windows.Forms.Button();
             this.btn_Re = new System.Windows.Forms.Button();
             this.btn_Sup = new System.Windows.Forms.Button();
-            this.btn_Quan = new System.Windows.Forms.Button();
-            this.btn_Void = new System.Windows.Forms.Button();
-            this.btn_Cus = new System.Windows.Forms.Button();
+            this.btOrder = new System.Windows.Forms.Button();
+            this.btEmployee = new System.Windows.Forms.Button();
+            this.btCustomer = new System.Windows.Forms.Button();
             this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,120 +48,129 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(this.btn_Reprint, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.btn_Off, 0, 3);
-            this.tableLayoutPanel7.Controls.Add(this.btn_Tender, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btProduct, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.btn_Re, 1, 2);
             this.tableLayoutPanel7.Controls.Add(this.btn_Sup, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.btn_Quan, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.btn_Void, 1, 1);
-            this.tableLayoutPanel7.Controls.Add(this.btn_Cus, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.btOrder, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.btEmployee, 1, 1);
+            this.tableLayoutPanel7.Controls.Add(this.btCustomer, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 4;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(335, 246);
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(447, 303);
             this.tableLayoutPanel7.TabIndex = 3;
             // 
             // btn_Reprint
             // 
             this.btn_Reprint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Reprint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Reprint.Location = new System.Drawing.Point(6, 186);
+            this.btn_Reprint.Location = new System.Drawing.Point(7, 232);
+            this.btn_Reprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Reprint.Name = "btn_Reprint";
-            this.btn_Reprint.Size = new System.Drawing.Size(157, 54);
+            this.btn_Reprint.Size = new System.Drawing.Size(211, 64);
             this.btn_Reprint.TabIndex = 3;
-            this.btn_Reprint.Text = "Reprint Bill";
             this.btn_Reprint.UseVisualStyleBackColor = true;
             // 
             // btn_Off
             // 
             this.btn_Off.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Off.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Off.Location = new System.Drawing.Point(172, 186);
+            this.btn_Off.Location = new System.Drawing.Point(229, 232);
+            this.btn_Off.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Off.Name = "btn_Off";
-            this.btn_Off.Size = new System.Drawing.Size(157, 54);
+            this.btn_Off.Size = new System.Drawing.Size(211, 64);
             this.btn_Off.TabIndex = 2;
-            this.btn_Off.Text = "Sign Off";
+            this.btn_Off.Text = "Đăng xuất";
             this.btn_Off.UseVisualStyleBackColor = true;
             this.btn_Off.Click += new System.EventHandler(this.btn_Off_Click);
             // 
-            // btn_Tender
+            // btProduct
             // 
-            this.btn_Tender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Tender.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Tender.Location = new System.Drawing.Point(6, 6);
-            this.btn_Tender.Name = "btn_Tender";
-            this.btn_Tender.Size = new System.Drawing.Size(157, 51);
-            this.btn_Tender.TabIndex = 1;
-            this.btn_Tender.Text = "Tender";
-            this.btn_Tender.UseVisualStyleBackColor = true;
+            this.btProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btProduct.Location = new System.Drawing.Point(7, 7);
+            this.btProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btProduct.Name = "btProduct";
+            this.btProduct.Size = new System.Drawing.Size(211, 64);
+            this.btProduct.TabIndex = 1;
+            this.btProduct.Text = "Sản phẩm";
+            this.btProduct.UseVisualStyleBackColor = true;
             // 
             // btn_Re
             // 
             this.btn_Re.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Re.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Re.Location = new System.Drawing.Point(172, 126);
+            this.btn_Re.Location = new System.Drawing.Point(229, 157);
+            this.btn_Re.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Re.Name = "btn_Re";
-            this.btn_Re.Size = new System.Drawing.Size(157, 51);
+            this.btn_Re.Size = new System.Drawing.Size(211, 64);
             this.btn_Re.TabIndex = 2;
-            this.btn_Re.Text = "Resume";
+            this.btn_Re.Text = "Doanh thu";
             this.btn_Re.UseVisualStyleBackColor = true;
             // 
             // btn_Sup
             // 
             this.btn_Sup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Sup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Sup.Location = new System.Drawing.Point(6, 126);
+            this.btn_Sup.Location = new System.Drawing.Point(7, 157);
+            this.btn_Sup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Sup.Name = "btn_Sup";
-            this.btn_Sup.Size = new System.Drawing.Size(157, 51);
+            this.btn_Sup.Size = new System.Drawing.Size(211, 64);
             this.btn_Sup.TabIndex = 2;
-            this.btn_Sup.Text = "Supend";
+            this.btn_Sup.Text = "Order chờ";
             this.btn_Sup.UseVisualStyleBackColor = true;
             // 
-            // btn_Quan
+            // btOrder
             // 
-            this.btn_Quan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Quan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Quan.Location = new System.Drawing.Point(6, 66);
-            this.btn_Quan.Name = "btn_Quan";
-            this.btn_Quan.Size = new System.Drawing.Size(157, 51);
-            this.btn_Quan.TabIndex = 2;
-            this.btn_Quan.Text = "Quantity";
-            this.btn_Quan.UseVisualStyleBackColor = true;
+            this.btOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOrder.Location = new System.Drawing.Point(7, 82);
+            this.btOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btOrder.Name = "btOrder";
+            this.btOrder.Size = new System.Drawing.Size(211, 64);
+            this.btOrder.TabIndex = 2;
+            this.btOrder.Text = "Order";
+            this.btOrder.UseVisualStyleBackColor = true;
             // 
-            // btn_Void
+            // btEmployee
             // 
-            this.btn_Void.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Void.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Void.Location = new System.Drawing.Point(172, 66);
-            this.btn_Void.Name = "btn_Void";
-            this.btn_Void.Size = new System.Drawing.Size(157, 51);
-            this.btn_Void.TabIndex = 2;
-            this.btn_Void.Text = "Item Void";
-            this.btn_Void.UseVisualStyleBackColor = true;
+            this.btEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEmployee.Location = new System.Drawing.Point(229, 82);
+            this.btEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btEmployee.Name = "btEmployee";
+            this.btEmployee.Size = new System.Drawing.Size(211, 64);
+            this.btEmployee.TabIndex = 2;
+            this.btEmployee.Text = "Nhân viên";
+            this.btEmployee.UseVisualStyleBackColor = true;
             // 
-            // btn_Cus
+            // btCustomer
             // 
-            this.btn_Cus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Cus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cus.Location = new System.Drawing.Point(172, 6);
-            this.btn_Cus.Name = "btn_Cus";
-            this.btn_Cus.Size = new System.Drawing.Size(157, 51);
-            this.btn_Cus.TabIndex = 2;
-            this.btn_Cus.Text = "Customer";
-            this.btn_Cus.UseVisualStyleBackColor = true;
+            this.btCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCustomer.Location = new System.Drawing.Point(229, 7);
+            this.btCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCustomer.Name = "btCustomer";
+            this.btCustomer.Size = new System.Drawing.Size(211, 64);
+            this.btCustomer.TabIndex = 2;
+            this.btCustomer.Text = "Khách hàng";
+            this.btCustomer.UseVisualStyleBackColor = true;
             // 
             // UC_Tool
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel7);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_Tool";
-            this.Size = new System.Drawing.Size(335, 246);
+            this.Size = new System.Drawing.Size(447, 303);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -172,11 +181,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         public System.Windows.Forms.Button btn_Reprint;
         public System.Windows.Forms.Button btn_Off;
-        public System.Windows.Forms.Button btn_Tender;
+        public System.Windows.Forms.Button btProduct;
         public System.Windows.Forms.Button btn_Re;
         public System.Windows.Forms.Button btn_Sup;
-        public System.Windows.Forms.Button btn_Quan;
-        public System.Windows.Forms.Button btn_Void;
-        public System.Windows.Forms.Button btn_Cus;
+        public System.Windows.Forms.Button btOrder;
+        public System.Windows.Forms.Button btEmployee;
+        public System.Windows.Forms.Button btCustomer;
     }
 }
